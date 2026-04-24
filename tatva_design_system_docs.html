@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tatva Design System — Complete Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--p:#F75E22;--p1:#F97E4E;--sec:#FFC627;--suc:#159169;--err:#D93640;--bg:#0F1114;--bg2:#16191E;--bg3:#1E2228;--bd:rgba(255,255,255,.07);--tp:#F0F2F5;--ts:#9CA3AF;--tt:#6B7280;--sw:270px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tp);line-height:1.6;font-size:15px}
+/* SIDEBAR */
+.sb{position:fixed;top:0;left:0;bottom:0;width:var(--sw);background:var(--bg2);border-right:1px solid var(--bd);overflow-y:auto;padding-bottom:40px;z-index:100}
+.logo{padding:20px 20px 16px;border-bottom:1px solid var(--bd);margin-bottom:8px}.logo h2{font-size:16px;font-weight:700;color:var(--p)}.logo p{font-size:11px;color:var(--tt);margin-top:2px}
+.ng{padding:10px 20px 2px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--tt)}
+.na{display:block;padding:6px 20px;font-size:12.5px;color:var(--ts);text-decoration:none;border-left:3px solid transparent;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.na:hover,.na.active{color:var(--tp);background:rgba(247,94,34,.08);border-left-color:var(--p)}
+/* MAIN */
+.main{margin-left:var(--sw);padding-bottom:120px}
+.hero{background:linear-gradient(135deg,#1A0D05,#2C1510 45%,#16100A);padding:52px 56px 44px;border-bottom:1px solid var(--bd);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-60px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(247,94,34,.18),transparent 70%)}
+.hero h1{font-size:34px;font-weight:800;line-height:1.15}.hero h1 span{background:linear-gradient(90deg,#F75E22,#FFC627);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{margin-top:10px;color:var(--ts);max-width:600px;font-size:13.5px}
+.bgs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.bg{padding:3px 10px;border-radius:20px;font-size:10.5px;font-weight:600}
+.bo{background:rgba(247,94,34,.15);color:#F97E4E;border:1px solid rgba(247,94,34,.3)}
+.by{background:rgba(255,198,39,.1);color:#FFD152;border:1px solid rgba(255,198,39,.3)}
+.bgr{background:rgba(21,145,105,.1);color:#5EB98E;border:1px solid rgba(21,145,105,.3)}
+.bb{background:rgba(59,130,246,.1);color:#93C5FD;border:1px solid rgba(59,130,246,.3)}
+/* SECTIONS */
+.sec{padding:40px 56px;border-bottom:1px solid var(--bd)}
+.stag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--p);margin-bottom:5px}
+.stitle{font-size:24px;font-weight:700}
+.sdesc{margin-top:8px;color:var(--ts);max-width:720px;font-size:13.5px;line-height:1.7}
+h3.sub{font-size:16px;font-weight:600;margin:28px 0 12px;color:var(--tp)}
+h4.ss{font-size:13px;font-weight:600;margin:18px 0 8px;color:#FFD152}
+/* CARDS */
+.card{background:var(--bg2);border:1px solid var(--bd);border-radius:12px;padding:20px}
+.card+.card{margin-top:12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+/* CODE/JSON */
+.pre{background:#0D1117;border-radius:10px;border:1px solid var(--bd);padding:14px 18px;overflow-x:auto;font-family:'Fira Code',monospace;font-size:12px;line-height:1.75;color:#C9D1D9;margin:12px 0;position:relative}
+.json-block{background:#0D1117;border:1px solid rgba(86,210,100,.15);border-radius:10px;padding:14px 18px;margin:12px 0;font-family:'Fira Code',monospace;font-size:12px;line-height:1.8;color:#C9D1D9;overflow-x:auto;position:relative}
+.json-block::before{content:"JSON CONTRACT";position:absolute;top:9px;right:12px;font-size:9px;font-weight:700;letter-spacing:1px;color:#56D364;opacity:.6}
+.kw{color:#FF7B72}.fn{color:#D2A8FF}.st{color:#A5D6FF}.nu{color:#79C0FF}.co{color:#6A737D;font-style:italic}.en{color:#FFA657}.ty{color:#56D364}
+.jk{color:#79C0FF}.js{color:#A5D6FF}.jn{color:#FFA657}.jb{color:#FF7B72}.jc{color:#6A737D;font-style:italic}
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:12.5px}
+.tbl th{background:var(--bg3);padding:8px 12px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--tt);border-bottom:1px solid var(--bd)}
+.tbl td{padding:8px 12px;border-bottom:1px solid var(--bd);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.pn{font-family:'Fira Code',monospace;color:#D2A8FF;font-size:11.5px}
+.pt{font-family:'Fira Code',monospace;color:#79C0FF;font-size:11.5px}
+.pd{font-family:'Fira Code',monospace;color:#FFA657;font-size:11.5px}
+.pv{font-family:'Fira Code',monospace;color:#56D364;font-size:11px}
+.req{font-size:10px;font-weight:700;color:#FF7B72;padding:1px 5px;background:rgba(255,123,114,.1);border-radius:4px}
+.opt{font-size:10px;font-weight:600;color:#8B949E;padding:1px 5px;background:rgba(139,148,158,.08);border-radius:4px}
+/* PREVIEW */
+.pv-box{background:var(--bg3);border:1px solid var(--bd);border-radius:12px 12px 0 0;padding:24px 20px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;min-height:72px;position:relative}
+.pv-lbl{font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tt);position:absolute;top:8px;left:12px}
+.code-box{background:#0D1117;border-radius:0 0 12px 12px;border:1px solid var(--bd);border-top:none;padding:12px 16px;overflow-x:auto;font-family:'Fira Code',monospace;font-size:12px;line-height:1.75;color:#C9D1D9}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;cursor:pointer;border:none;gap:6px;white-space:nowrap;font-size:14px}
+.xl{height:56px;padding:0 20px;font-size:17px;border-radius:12px}
+.lg{height:48px;padding:0 16px;font-size:16px;border-radius:12px}
+.md{height:40px;padding:0 16px;border-radius:8px}
+.sm{height:32px;padding:0 8px;border-radius:8px}
+.xs{height:24px;padding:0 8px;font-size:12px;border-radius:4px}
+.bpri{background:linear-gradient(180deg,#F97E4E,#F75E22);color:#fff}
+.bsec{background:#fff;color:#F75E22;border:1px solid #F75E22}
+.bout{background:transparent;color:#F75E22;border:1px solid #F75E22}
+.bgho{background:transparent;color:#374151;border:none}
+.bblk{background:#141414;color:#fff}
+.bwht{background:#fff;color:#1D2125}
+.bwop{background:transparent;color:#fff;border:1px solid #fff}
+.bdes{background:#D93640;color:#fff}
+.bdeo{background:transparent;color:#D93640;border:1px solid #D93640}
+.bsuc{background:#159169;color:#fff}
+.bsuo{background:transparent;color:#159169;border:1px solid #159169}
+.bdis{background:#9CA3AF;color:#fff;opacity:.6}
+.bwp{background:#fff;color:#F75E22}
+.bbo{background:transparent;color:#1D2125;border:1px solid #1D2125}
+.spn{width:15px;height:15px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* CHIPS */
+.chip{display:inline-flex;align-items:center;gap:4px;height:32px;padding:0 12px;border-radius:16px;font-size:10px;cursor:pointer}
+.chip-on{background:#F75E22;color:#fff}
+.chip-off{background:transparent;color:#6B7280;border:1px solid #9CA3AF}
+.chip-dis{background:#F3F4F6;color:#9CA3AF;border:1px solid #E5E7EB;opacity:.6}
+/* FIELDS */
+.fw{width:100%;max-width:320px}
+.flb{font-size:14px;font-weight:600;color:#1D2125;margin-bottom:6px;display:block}
+.fbox{display:flex;align-items:center;gap:8px;padding:0 14px;background:#fff;border-radius:10px;border:1px solid #D1D5DB;width:100%}
+.fbox.act{border-color:#F75E22}.fbox.err{border-color:#D93640;background:#FCEBEC}
+.fxl{height:56px}.flg{height:48px}.fmd{height:40px}
+.fph{flex:1;font-size:16px;font-weight:500;color:rgba(107,114,128,.5);font-family:'Inter'}
+.fhelp{font-size:12px;margin-top:4px;padding-left:2px}
+.fhelp.n{color:#6B7280}.fhelp.e{color:#D93640;font-weight:700}
+/* COLOR SWATCHES */
+.pal{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0 20px}
+.sw{width:40px;height:40px;border-radius:6px;border:1px solid var(--bd);flex-shrink:0;position:relative;cursor:help}
+.sw span{display:none;position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:8px;color:var(--tt);white-space:nowrap;font-family:'Fira Code',monospace;pointer-events:none}
+/* THEME CARDS */
+.tgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:900px){.tgrid{grid-template-columns:1fr}}
+.tc{background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:16px}
+.tct{font-size:13px;font-weight:700;margin-bottom:10px}
+.tr{display:flex;align-items:center;gap:7px;padding:3px 0;font-size:11px}
+.tdot{width:14px;height:14px;border-radius:3px;flex-shrink:0;border:1px solid rgba(255,255,255,.1)}
+.tk{font-family:'Fira Code',monospace;color:#D2A8FF;font-size:10px;flex:1}
+.tv{font-family:'Fira Code',monospace;color:#79C0FF;font-size:10px}
+/* HIERARCHY */
+.hier{background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:14px 18px;font-family:'Fira Code',monospace;font-size:12px;line-height:2}
+.hs{color:#D2A8FF}.hse{color:#FFA657;padding-left:20px}.hw{color:#79C0FF;padding-left:40px}
+/* INFO BOXES */
+.info{border-radius:8px;padding:10px 14px;margin:12px 0;font-size:13px;display:flex;gap:9px;line-height:1.6}
+.in{background:rgba(21,145,105,.08);border:1px solid rgba(21,145,105,.2);color:#88CEAD}
+.iw{background:rgba(255,198,39,.07);border:1px solid rgba(255,198,39,.2);color:#FFD152}
+.it{background:rgba(247,94,34,.07);border:1px solid rgba(247,94,34,.2);color:#F97E4E}
+.ib{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.2);color:#93C5FD}
+/* SERN NAME */
+.sn{display:inline-block;font-family:'Fira Code',monospace;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;background:rgba(86,210,100,.12);border:1px solid rgba(86,210,100,.3);color:#56D364;margin-left:8px}
+/* MEDIA PILLS */
+.mp{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;margin:2px}
+.mi{background:rgba(147,197,253,.1);color:#93C5FD;border:1px solid rgba(147,197,253,.3)}
+.mv{background:rgba(247,94,34,.1);color:#F97E4E;border:1px solid rgba(247,94,34,.3)}
+.mr{background:rgba(255,198,39,.1);color:#FFD152;border:1px solid rgba(255,198,39,.3)}
+.ma{background:rgba(21,145,105,.1);color:#5EB98E;border:1px solid rgba(21,145,105,.3)}
+/* SPACING */
+.spr{display:flex;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--bd);font-size:12px}
+.spr:last-child{border-bottom:none}
+.spbar{background:linear-gradient(90deg,#F75E22,#F97E4E);border-radius:3px;height:16px;flex-shrink:0}
+.sptk{font-family:'Fira Code',monospace;font-size:11px;color:#D2A8FF;min-width:160px}
+.spvl{font-family:'Fira Code',monospace;font-size:11px;color:#79C0FF;min-width:45px}
+/* MISC */
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+.tc-circle{width:52px;height:52px;border-radius:50%;background:linear-gradient(180deg,#C7B6DC,#5E457E);border:1.5px solid #fff;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 8px 20px rgba(56,41,75,.4)}
+hr.div{border:none;border-top:1px solid var(--bd);margin:20px 0}
+</style>
+</head>
+<body>
+<!-- SIDEBAR -->
+<nav class="sb">
+<div class="logo"><h2>⚡ Tatva DS</h2><p>Complete Design System Reference</p></div>
+<div class="ng">Overview</div>
+<a class="na" href="#overview">Introduction &amp; Architecture</a>
+<a class="na" href="#themes">All Themes</a>
+<div class="ng">Foundation</div>
+<a class="na" href="#colors">Color Primitives</a>
+<a class="na" href="#schema">Semantic Schema Tokens</a>
+<a class="na" href="#spacing">Spacing Tokens</a>
+<a class="na" href="#shapes-sec">Shape / Corner Radius</a>
+<a class="na" href="#alpha">Alpha Tokens</a>
+<a class="na" href="#typography">Typography System</a>
+<div class="ng">UI Components</div>
+<a class="na" href="#tatvabutton">TatvaButton (13 types)</a>
+<a class="na" href="#tatvalinks">TatvaLinksButton</a>
+<a class="na" href="#temple-btn">TempleInteractionButton</a>
+<a class="na" href="#tatvatext">TatvaText + OutlineShadowText</a>
+<a class="na" href="#tatvafield">TatvaTextField</a>
+<a class="na" href="#mobilefield">TatvaMobileNumberField</a>
+<a class="na" href="#tatvachip">TatvaChip</a>
+<a class="na" href="#tatvacheckbox">TatvaCheckbox</a>
+<a class="na" href="#shimmer">Shimmer Modifier</a>
+<a class="na" href="#draggable">DraggableView</a>
+<div class="ng">Media Components</div>
+<a class="na" href="#videoplayer">VideoPlayer</a>
+<a class="na" href="#audioplayer">AudioPlayer</a>
+<a class="na" href="#rive">RiveAnimation</a>
+<a class="na" href="#mediaplayer">MediaPlayer Interface</a>
+<a class="na" href="#fadingslideshow">FadingSlideshow</a>
+<div class="ng">Server-Driven UI</div>
+<a class="na" href="#ctacomp">CtaComponent</a>
+<a class="na" href="#mediacomp">MediaComponent</a>
+<a class="na" href="#textcomp">TextComponent</a>
+<a class="na" href="#bannercomp">BannerComponent</a>
+<a class="na" href="#headercomp">HeaderComponent</a>
+<a class="na" href="#interactioncomp">InteractionComponent</a>
+<a class="na" href="#itemthird">ItemThirdComponent</a>
+<div class="ng">Layout Sections</div>
+<a class="na" href="#hlist">HorizontalList</a>
+<a class="na" href="#vlist">VerticalList</a>
+<a class="na" href="#carousel">Carousel</a>
+<a class="na" href="#grid">Grid</a>
+<div class="ng">Utilities</div>
+<a class="na" href="#gutters">AppGutters</a>
+<a class="na" href="#icons">Custom Icons</a>
+<a class="na" href="#extensions">Extensions</a>
+<a class="na" href="#full-example">Full Screen JSON Example</a>
+</nav>
+
+<div class="main">
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="stag">Tatva Design System</div>
+  <h1><span>Complete Component &amp;</span><br>JSON Contract Reference</h1>
+  <p>The definitive guide to every component, token, theme, and server-driven UI contract in the Tatva design system. Includes DailyDarshan theme as the primary reference with actual hex values.</p>
+  <div class="bgs"><span class="bg bo">Compose Multiplatform</span><span class="bg by">kotlinx.serialization</span><span class="bg bgr">6 Themes</span><span class="bg bb">Server-Driven UI</span></div>
+</div>
+
+<!-- ARCHITECTURE -->
+<div class="sec">
+<div class="stag">Architecture</div>
+<div class="stitle">3-Layer Design System</div>
+<div class="sdesc">Tatva uses a 3-layer approach: raw primitive values → semantic role tokens → theme overrides. Components always consume semantic tokens, never primitives directly.</div>
+<div class="hier" style="margin-top:18px">
+<div class="hs">Layer 1 — Primitives (Primitives.kt)</div>
+<div class="hse">Prasadamsaffron.s500 = #F75E22</div>
+<div class="hse">Goldenhoney.s500 = #FFC627</div>
+<div class="hse">Grey.s900 = #1D2125</div>
+<br>
+<div class="hs">Layer 2 — Semantic Schema (ThemeSchema.kt)</div>
+<div class="hse">schema.primary → (mapped per theme)</div>
+<div class="hse">button.fillPrimaryG1, button.fillPrimaryG2</div>
+<div class="hse">inputField.inputStrokeActive</div>
+<br>
+<div class="hs">Layer 3 — Theme Override (DailyDarshanTheme, etc.)</div>
+<div class="hse">DailyDarshanTheme.schema.primary = Prasadamsaffron.s500</div>
+<div class="hse">KhatuLightTheme.schema.primary = Divinerose.s500</div>
+<br>
+<div class="hs">Runtime Access</div>
+<div class="hse">TatvaTheme.colors.schema.primary</div>
+<div class="hse">TatvaTheme.colors.button.fillPrimaryG1</div>
+<div class="hse">TatvaTheme.spacing.space200  → 16.dp</div>
+<div class="hse">TatvaTheme.shapes.medium     → 12.dp</div>
+<div class="hse">TatvaTheme.tatvaTypography.font16Bold</div>
+</div>
+
+<h3 class="sub">TatvaTheme Setup</h3>
+<div class="pre"><span class="kw">@Composable</span>
+<span class="fn">TatvaTheme</span>(
+  colorScheme = DailyDarshanTheme,  <span class="co">// pick any theme</span>
+  isDark = <span class="kw">false</span>,               <span class="co">// toggles Material dark colors</span>
+  language = <span class="kw">null</span>,             <span class="co">// null = auto-detect from system locale</span>
+) {
+  MyApp()
+}</div>
+</div>
+
+<!-- ALL THEMES -->
+<div class="sec" id="themes">
+<div class="stag">Multi-Brand</div>
+<div class="stitle">All Available Themes</div>
+<div class="sdesc">Each theme maps semantic role tokens to different primitive color palettes. All share the same component APIs — only colors change.</div>
+<div class="tgrid" style="margin-top:18px">
+  <div class="tc">
+    <div class="tct" style="color:#F75E22">🟠 DailyDarshanTheme</div>
+    <div class="tr"><div class="tdot" style="background:#F75E22"></div><span class="tk">primary</span><span class="tv">Prasadamsaffron.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#F97E4E"></div><span class="tk">primaryElevated</span><span class="tv">Prasadamsaffron.s400</span></div>
+    <div class="tr"><div class="tdot" style="background:#FFC627"></div><span class="tk">secondary</span><span class="tv">Goldenhoney.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#159169"></div><span class="tk">success</span><span class="tv">Prasadamgreen.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#D93640"></div><span class="tk">error</span><span class="tv">Kashisunsetred.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#8561B2"></div><span class="tk">templeButton.g1</span><span class="tv">Mysticaartipurple.s200</span></div>
+    <div class="tr"><div class="tdot" style="background:#5E457E"></div><span class="tk">templeButton.g2</span><span class="tv">Mysticaartipurple.s700</span></div>
+  </div>
+  <div class="tc">
+    <div class="tct" style="color:#F75E22">🟠 SriMandirTheme</div>
+    <div class="tr"><div class="tdot" style="background:#F75E22"></div><span class="tk">primary</span><span class="tv">Prasadamsaffron.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#F99724"></div><span class="tk">secondary</span><span class="tv">Sunsetorange.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#159169"></div><span class="tk">success</span><span class="tv">Prasadamgreen.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#8561B2"></div><span class="tk">templeButton.g1</span><span class="tv">Mysticaartipurple.s200</span></div>
+    <div class="tr"><div class="tdot" style="background:#5E457E"></div><span class="tk">templeButton.g2</span><span class="tv">Mysticaartipurple.s700</span></div>
+  </div>
+  <div class="tc">
+    <div class="tct" style="color:#E6327A">💗 KhatuLightTheme</div>
+    <div class="tr"><div class="tdot" style="background:#E6327A"></div><span class="tk">primary</span><span class="tv">Divinerose.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#7E3AF2"></div><span class="tk">secondary</span><span class="tv">Purple.s500</span></div>
+    <div class="tr"><div class="tdot" style="background:#FFC627"></div><span class="tk">templeButton.g1</span><span class="tv">Goldenhoney.s600</span></div>
+    <div class="tr"><div class="tdot" style="background:#793F15"></div><span class="tk">templeButton.g2</span><span class="tv">Darkorange.s700</span></div>
+  </div>
+  <div class="tc">
+    <div class="tct" style="color:#7E3AF2">🔮 DailyMantraLight/Dark</div>
+    <div class="tr"><span class="tk">Separate light &amp; dark variants</span></div>
+    <div class="tr"><span class="tk">See DailyMantraLightTheme.kt</span></div>
+    <div class="tr"><span class="tk">See DailyMantraDarkTheme.kt</span></div>
+  </div>
+  <div class="tc">
+    <div class="tct" style="color:#047480">🌊 SriPanchangamTheme</div>
+    <div class="tr"><div class="tdot" style="background:#047480"></div><span class="tk">primary</span><span class="tv">Gangateal.s500</span></div>
+    <div class="tr"><span class="tk">See SriPanchangamTheme.kt</span></div>
+  </div>
+  <div class="tc">
+    <div class="tct" style="color:#7E3AF2">⭐ SuperAstroLightTheme</div>
+    <div class="tr"><span class="tk">See SuperAstroLightTheme.kt</span></div>
+  </div>
+</div>
+</div>
+
+<!-- COLOR PRIMITIVES -->
+<div class="sec" id="colors">
+<div class="stag">Foundation — Layer 1</div>
+<div class="stitle">Color Primitives (Primitives.kt)</div>
+<div class="sdesc">15 named color families, each with 10 stops (s50–s900). Never use these directly in components — always go through semantic tokens.</div>
+
+<h3 class="sub">Prasadamsaffron — Primary in DailyDarshan &amp; SriMandir</h3>
+<div class="pal">
+  <div class="sw" style="background:#FEEFE9" title="#FEEFE9 s50"></div>
+  <div class="sw" style="background:#FFDCCE" title="#FFDCCE s100"></div>
+  <div class="sw" style="background:#FBB599" title="#FBB599 s200"></div>
+  <div class="sw" style="background:#FA936B" title="#FA936B s300"></div>
+  <div class="sw" style="background:#F97E4E" title="#F97E4E s400"></div>
+  <div class="sw" style="background:#F75E22" title="#F75E22 s500 ★"></div>
+  <div class="sw" style="background:#E1561F" title="#E1561F s600"></div>
+  <div class="sw" style="background:#AF4318" title="#AF4318 s700"></div>
+  <div class="sw" style="background:#883413" title="#883413 s800"></div>
+  <div class="sw" style="background:#3C1608" title="#3C1608 s900"></div>
+</div>
+<h3 class="sub">Goldenhoney — Secondary in DailyDarshan</h3>
+<div class="pal">
+  <div class="sw" style="background:#FFF9E9" title="#FFF9E9 s50"></div>
+  <div class="sw" style="background:#FFEDBC" title="#FFEDBC s100"></div>
+  <div class="sw" style="background:#FFE59C" title="#FFE59C s200"></div>
+  <div class="sw" style="background:#FFD96E" title="#FFD96E s300"></div>
+  <div class="sw" style="background:#FFD152" title="#FFD152 s400"></div>
+  <div class="sw" style="background:#FFC627" title="#FFC627 s500 ★"></div>
+  <div class="sw" style="background:#E8B423" title="#E8B423 s600"></div>
+  <div class="sw" style="background:#B57A1C" title="#B57A1C s700"></div>
+  <div class="sw" style="background:#8C5C15" title="#8C5C15 s800"></div>
+  <div class="sw" style="background:#6B4810" title="#6B4810 s900"></div>
+</div>
+<h3 class="sub">Prasadamgreen — Success (all themes)</h3>
+<div class="pal">
+  <div class="sw" style="background:#EDF5F2"></div><div class="sw" style="background:#DEF4E9"></div><div class="sw" style="background:#C2E9D6"></div><div class="sw" style="background:#88CEAD"></div><div class="sw" style="background:#5EB98E"></div>
+  <div class="sw" style="background:#159169" title="#159169 s500 ★"></div><div class="sw" style="background:#087955"></div><div class="sw" style="background:#06563C"></div><div class="sw" style="background:#04432F"></div><div class="sw" style="background:#0A3024"></div>
+</div>
+<h3 class="sub">Kashisunsetred — Error (all themes)</h3>
+<div class="pal">
+  <div class="sw" style="background:#FCEBEC"></div><div class="sw" style="background:#F2D7D9"></div><div class="sw" style="background:#EEB8BC"></div><div class="sw" style="background:#E18D93"></div><div class="sw" style="background:#DC5A61"></div>
+  <div class="sw" style="background:#D93640" title="#D93640 s500 ★"></div><div class="sw" style="background:#C6333C"></div><div class="sw" style="background:#A02930"></div><div class="sw" style="background:#5F181D"></div><div class="sw" style="background:#340D10"></div>
+</div>
+<h3 class="sub">Mysticaartipurple — Temple Button in DailyDarshan &amp; SriMandir</h3>
+<div class="pal">
+  <div class="sw" style="background:#F3EFF7"></div><div class="sw" style="background:#D9CEE7"></div><div class="sw" style="background:#C7B6DC"></div><div class="sw" style="background:#AD95CB"></div><div class="sw" style="background:#9D81C1"></div>
+  <div class="sw" style="background:#8561B2" title="#8561B2 s500 ★"></div><div class="sw" style="background:#7958A2"></div><div class="sw" style="background:#5E457E"></div><div class="sw" style="background:#493562"></div><div class="sw" style="background:#38294B"></div>
+</div>
+<h3 class="sub">Grey — Neutral (all themes)</h3>
+<div class="pal">
+  <div class="sw" style="background:#F7F8F9"></div><div class="sw" style="background:#F3F4F6"></div><div class="sw" style="background:#E5E7EB"></div><div class="sw" style="background:#D1D5DB"></div><div class="sw" style="background:#9CA3AF"></div>
+  <div class="sw" style="background:#6B7280" title="#6B7280 s500 ★"></div><div class="sw" style="background:#374151"></div><div class="sw" style="background:#374151"></div><div class="sw" style="background:#22272B"></div><div class="sw" style="background:#1D2125"></div>
+</div>
+<h3 class="sub">Other Palette Families</h3>
+<table class="tbl">
+<tr><th>Name</th><th>s500 (Base)</th><th>Hex</th><th>Used In Theme</th></tr>
+<tr><td>Divinerose</td><td><div style="width:14px;height:14px;background:#E6327A;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#E6327A</span></td><td><span class="pv">#E6327A</span></td><td>KhatuLightTheme (primary)</td></tr>
+<tr><td>Purple</td><td><div style="width:14px;height:14px;background:#7E3AF2;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#7E3AF2</span></td><td><span class="pv">#7E3AF2</span></td><td>KhatuLightTheme (secondary)</td></tr>
+<tr><td>Sunsetorange</td><td><div style="width:14px;height:14px;background:#F99724;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#F99724</span></td><td><span class="pv">#F99724</span></td><td>SriMandirTheme (secondary)</td></tr>
+<tr><td>Gangateal</td><td><div style="width:14px;height:14px;background:#047480;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#047480</span></td><td><span class="pv">#047480</span></td><td>SriPanchangamTheme (primary)</td></tr>
+<tr><td>Cosmicblue</td><td><div style="width:14px;height:14px;background:#1D79FC;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#1D79FC</span></td><td><span class="pv">#1D79FC</span></td><td>SuperAstroLightTheme</td></tr>
+<tr><td>Divinenectarblue</td><td><div style="width:14px;height:14px;background:#191970;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#191970</span></td><td><span class="pv">#191970</span></td><td>KhatuDarkTheme</td></tr>
+<tr><td>Sacredtulsigreen</td><td><div style="width:14px;height:14px;background:#889A22;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#889A22</span></td><td><span class="pv">#889A22</span></td><td>Available</td></tr>
+<tr><td>Mitti</td><td><div style="width:14px;height:14px;background:#502D14;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#502D14</span></td><td><span class="pv">#502D14</span></td><td>Available</td></tr>
+<tr><td>Creamivory</td><td><div style="width:14px;height:14px;background:#FFF1E9;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#FFF1E9</span></td><td><span class="pv">#FFF1E9</span></td><td>Available</td></tr>
+<tr><td>Darkorange</td><td><div style="width:14px;height:14px;background:#AA591D;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px"></div><span class="pv">#AA591D</span></td><td><span class="pv">#AA591D</span></td><td>KhatuLightTheme templeButton.g2</td></tr>
+<tr><td>Pure.Black</td><td><div style="width:14px;height:14px;background:#141414;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px;border:1px solid #444"></div><span class="pv">#141414</span></td><td><span class="pv">#141414</span></td><td>All themes</td></tr>
+<tr><td>Pure.White</td><td><div style="width:14px;height:14px;background:#FFFFFF;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px;border:1px solid #444"></div><span class="pv">#FFFFFF</span></td><td><span class="pv">#FFFFFF</span></td><td>All themes</td></tr>
+</table>
+</div>
+<!-- SEMANTIC SCHEMA -->
+<div class="sec" id="schema">
+<div class="stag">Foundation — Layer 2</div>
+<div class="stitle">Semantic Schema Color Tokens</div>
+<div class="sdesc">These are the tokens components consume directly. Each color group has a consistent scale: base, dim, dimElevated, elevated, elevated2, fixed, surface, surfaceElevated, surfaceElevated2, surfaceInverted, surfaceInverted2.</div>
+<h3 class="sub">schema.* — SchemaColors interface (86 tokens)</h3>
+<table class="tbl">
+<tr><th>Token</th><th>DailyDarshan Value</th><th>Description</th></tr>
+<tr><td><span class="pn">schema.primary</span></td><td><div style="width:10px;height:10px;background:#F75E22;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#F75E22</span></td><td>Main brand color — buttons, active states, links</td></tr>
+<tr><td><span class="pn">schema.primaryElevated</span></td><td><div style="width:10px;height:10px;background:#F97E4E;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#F97E4E</span></td><td>Gradient start for Primary button</td></tr>
+<tr><td><span class="pn">schema.primaryDim</span></td><td><span class="pv">Prasadamsaffron.s600</span></td><td>Dimmed/pressed primary</td></tr>
+<tr><td><span class="pn">schema.primarySurface</span></td><td><span class="pv">Prasadamsaffron.s50</span></td><td>Tinted background for primary-colored surfaces</td></tr>
+<tr><td><span class="pn">schema.primarySurfaceInverted</span></td><td><span class="pv">Prasadamsaffron.s900</span></td><td>Darkest primary text on light primary surface</td></tr>
+<tr><td><span class="pn">schema.secondary</span></td><td><div style="width:10px;height:10px;background:#FFC627;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#FFC627</span></td><td>Secondary accent color</td></tr>
+<tr><td><span class="pn">schema.neutral</span></td><td><div style="width:10px;height:10px;background:#6B7280;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#6B7280</span></td><td>Mid-grey — placeholder, icons, helpers</td></tr>
+<tr><td><span class="pn">schema.neutralSurfaceBase</span></td><td><span class="pv">#FFFFFF</span></td><td>Page/card background</td></tr>
+<tr><td><span class="pn">schema.neutralSurface</span></td><td><span class="pv">Grey.s50</span></td><td>Elevated card background</td></tr>
+<tr><td><span class="pn">schema.neutralSurfaceElevated</span></td><td><span class="pv">Grey.s100</span></td><td>Higher elevation surface</td></tr>
+<tr><td><span class="pn">schema.neutralSurfaceInverted</span></td><td><div style="width:10px;height:10px;background:#1D2125;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#1D2125</span></td><td>Primary text color (near-black)</td></tr>
+<tr><td><span class="pn">schema.neutralSurfaceInverted2</span></td><td><div style="width:10px;height:10px;background:#22272B;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#22272B</span></td><td>Secondary text color</td></tr>
+<tr><td><span class="pn">schema.neutralElevated</span></td><td><div style="width:10px;height:10px;background:#9CA3AF;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#9CA3AF</span></td><td>Disabled icon/text color</td></tr>
+<tr><td><span class="pn">schema.neutralElevated2</span></td><td><span class="pv">Grey.s300</span></td><td>Borders, dividers</td></tr>
+<tr><td><span class="pn">schema.success</span></td><td><div style="width:10px;height:10px;background:#159169;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#159169</span></td><td>Success states</td></tr>
+<tr><td><span class="pn">schema.error</span></td><td><div style="width:10px;height:10px;background:#D93640;border-radius:2px;display:inline-block;margin-right:5px"></div><span class="pv">#D93640</span></td><td>Error states</td></tr>
+<tr><td><span class="pn">schema.white</span></td><td><span class="pv">#FFFFFF</span></td><td>Always white regardless of theme</td></tr>
+<tr><td><span class="pn">schema.black</span></td><td><span class="pv">#141414</span></td><td>Always near-black</td></tr>
+</table>
+
+<h3 class="sub">button.* — ButtonColors interface (17 tokens)</h3>
+<table class="tbl">
+<tr><th>Token</th><th>DailyDarshan Value</th><th>Usage</th></tr>
+<tr><td><span class="pn">button.fillPrimaryG1</span></td><td><span class="pv">Prasadamsaffron.s400 (#F97E4E)</span></td><td>Primary btn gradient top</td></tr>
+<tr><td><span class="pn">button.fillPrimaryG2</span></td><td><span class="pv">Prasadamsaffron.s500 (#F75E22)</span></td><td>Primary btn gradient bottom</td></tr>
+<tr><td><span class="pn">button.fillPrimaryDisabled</span></td><td><span class="pv">Grey.s400 (#9CA3AF)</span></td><td>Disabled background</td></tr>
+<tr><td><span class="pn">button.fillSecondary</span></td><td><span class="pv">#FFFFFF</span></td><td>Secondary btn background</td></tr>
+<tr><td><span class="pn">button.fillNeutral</span></td><td><span class="pv">#141414</span></td><td>Black btn background</td></tr>
+<tr><td><span class="pn">button.fillNeutralInverse</span></td><td><span class="pv">#FFFFFF</span></td><td>White btn background</td></tr>
+<tr><td><span class="pn">button.fillDestructive</span></td><td><span class="pv">#D93640</span></td><td>Destructive btn background</td></tr>
+<tr><td><span class="pn">button.fillSuccess</span></td><td><span class="pv">#159169</span></td><td>Success btn background</td></tr>
+<tr><td><span class="pn">button.fillSecondaryDisabled</span></td><td><span class="pv">Grey.s100</span></td><td>Secondary/outline disabled bg</td></tr>
+<tr><td><span class="pn">button.fillSecondaryDestructive</span></td><td><span class="pv">Kashisunsetred.s50</span></td><td>Destructive outline pressed bg</td></tr>
+<tr><td><span class="pn">button.fillSecondarySuccess</span></td><td><span class="pv">Prasadamgreen.s50</span></td><td>Success outline pressed bg</td></tr>
+<tr><td><span class="pn">button.strokePrimary</span></td><td><span class="pv">schema.primary</span></td><td>Primary border for outline btns</td></tr>
+<tr><td><span class="pn">button.strokeNeutral</span></td><td><span class="pv">#141414</span></td><td>Black outline border</td></tr>
+<tr><td><span class="pn">button.strokeNeutralInverse</span></td><td><span class="pv">#FFFFFF</span></td><td>White outline border</td></tr>
+<tr><td><span class="pn">button.strokeDestructive</span></td><td><span class="pv">#D93640</span></td><td>Destructive outline border</td></tr>
+<tr><td><span class="pn">button.strokeSuccess</span></td><td><span class="pv">#159169</span></td><td>Success outline border</td></tr>
+<tr><td><span class="pn">button.strokeDisabled</span></td><td><span class="pv">Grey.s400</span></td><td>Disabled border</td></tr>
+</table>
+
+<h3 class="sub">inputField.* — InputFieldColors interface (9 tokens)</h3>
+<table class="tbl">
+<tr><th>Token</th><th>DailyDarshan Value</th><th>Usage</th></tr>
+<tr><td><span class="pn">inputField.inputFillEmpty</span></td><td><span class="pv">#FFFFFF</span></td><td>Default empty state background</td></tr>
+<tr><td><span class="pn">inputField.inputFillActive</span></td><td><span class="pv">#FFFFFF</span></td><td>Focused state background</td></tr>
+<tr><td><span class="pn">inputField.inputFillFilled</span></td><td><span class="pv">#FFFFFF</span></td><td>Filled (blurred) background</td></tr>
+<tr><td><span class="pn">inputField.inputFillDeactive</span></td><td><span class="pv">Grey.s100</span></td><td>Disabled background</td></tr>
+<tr><td><span class="pn">inputField.inputFillError</span></td><td><span class="pv">Kashisunsetred.s50</span></td><td>Error state background</td></tr>
+<tr><td><span class="pn">inputField.inputStrokeEmpty</span></td><td><span class="pv">Grey.s300</span></td><td>Default border</td></tr>
+<tr><td><span class="pn">inputField.inputStrokeActive</span></td><td><span class="pv">schema.primary</span></td><td>Focused border (orange)</td></tr>
+<tr><td><span class="pn">inputField.inputStrokeFilled</span></td><td><span class="pv">Grey.s300</span></td><td>Filled, not focused border</td></tr>
+<tr><td><span class="pn">inputField.inputStrokeError</span></td><td><span class="pv">#D93640</span></td><td>Error border</td></tr>
+</table>
+
+<h3 class="sub">templeButton.* — TempleButtonColors interface (5 tokens)</h3>
+<table class="tbl">
+<tr><th>Token</th><th>DailyDarshan</th><th>SriMandir</th><th>Khatu</th><th>Usage</th></tr>
+<tr><td><span class="pn">templeButton.g1</span></td><td><span class="pv">#C7B6DC</span></td><td><span class="pv">#C7B6DC</span></td><td><span class="pv">#E8B423</span></td><td>Gradient top of circle</td></tr>
+<tr><td><span class="pn">templeButton.g2</span></td><td><span class="pv">#5E457E</span></td><td><span class="pv">#5E457E</span></td><td><span class="pv">#793F15</span></td><td>Gradient bottom of circle</td></tr>
+<tr><td><span class="pn">templeButton.radial</span></td><td><span class="pv">#F3EFF7</span></td><td><span class="pv">#F3EFF7</span></td><td><span class="pv">#FFD152</span></td><td>Radial glow</td></tr>
+<tr><td><span class="pn">templeButton.s1</span></td><td><span class="pv">#C7B6DC</span></td><td><span class="pv">#C7B6DC</span></td><td><span class="pv">#FFEDBC</span></td><td>Shadow light</td></tr>
+<tr><td><span class="pn">templeButton.s2</span></td><td><span class="pv">#38294B</span></td><td><span class="pv">#38294B</span></td><td><span class="pv">#6B4810</span></td><td>Shadow dark</td></tr>
+</table>
+</div>
+
+<!-- SPACING -->
+<div class="sec" id="spacing">
+<div class="stag">Foundation</div>
+<div class="stitle">Spacing Tokens (DefaultSpacing)</div>
+<div class="sdesc">Access via <span class="pv">TatvaTheme.spacing.spaceXXX</span>. All sizes are defined in dp.</div>
+<div class="card" style="margin-top:14px">
+  <div class="spr"><span class="sptk">spacing.space0</span><span class="spvl">0.dp</span><div class="spbar" style="width:0px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space25</span><span class="spvl">2.dp</span><div class="spbar" style="width:4px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space50</span><span class="spvl">4.dp</span><div class="spbar" style="width:8px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space75</span><span class="spvl">6.dp</span><div class="spbar" style="width:12px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space100</span><span class="spvl">8.dp</span><div class="spbar" style="width:16px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space150</span><span class="spvl">12.dp</span><div class="spbar" style="width:24px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space200</span><span class="spvl">16.dp</span><div class="spbar" style="width:32px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space250</span><span class="spvl">20.dp</span><div class="spbar" style="width:40px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space300</span><span class="spvl">24.dp</span><div class="spbar" style="width:48px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space400</span><span class="spvl">32.dp</span><div class="spbar" style="width:64px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space500</span><span class="spvl">40.dp</span><div class="spbar" style="width:80px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space600</span><span class="spvl">48.dp</span><div class="spbar" style="width:96px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space800</span><span class="spvl">64.dp</span><div class="spbar" style="width:128px"></div></div>
+  <div class="spr"><span class="sptk">spacing.space1000</span><span class="spvl">80.dp</span><div class="spbar" style="width:160px"></div></div>
+  <div class="spr"><span class="sptk">spacing.spaceNegative200</span><span class="spvl">-16.dp</span><div class="spbar" style="width:32px;background:linear-gradient(90deg,#FF7B72,#FF7B72)"></div></div>
+  <div class="spr"><span class="sptk">spacing.spaceNegative025</span><span class="spvl">-2.dp</span><div class="spbar" style="width:4px;background:linear-gradient(90deg,#FF7B72,#FF7B72)"></div></div>
+</div>
+</div>
+
+<!-- SHAPES -->
+<div class="sec" id="shapes-sec">
+<div class="stag">Foundation</div>
+<div class="stitle">Shape &amp; Corner Radius Tokens</div>
+<div class="sdesc">Access via <span class="pv">TatvaTheme.shapes.medium</span>. Shapes are always rendered as <strong>Squircle</strong> (smoothing=1.0), not standard rounded rects.</div>
+<div class="g2" style="margin-top:14px">
+<div class="card">
+<table class="tbl">
+<tr><th>Token</th><th>Value</th><th>Visual</th></tr>
+<tr><td><span class="pn">shapes.none</span></td><td><span class="pv">0.dp</span></td><td><div style="width:36px;height:28px;background:#F75E22;border-radius:0"></div></td></tr>
+<tr><td><span class="pn">shapes.extraSmall</span></td><td><span class="pv">4.dp</span></td><td><div style="width:36px;height:28px;background:#F75E22;border-radius:4px"></div></td></tr>
+<tr><td><span class="pn">shapes.small</span></td><td><span class="pv">8.dp</span></td><td><div style="width:36px;height:28px;background:#F75E22;border-radius:8px"></div></td></tr>
+<tr><td><span class="pn">shapes.medium</span></td><td><span class="pv">12.dp</span></td><td><div style="width:36px;height:28px;background:#F75E22;border-radius:12px"></div></td></tr>
+<tr><td><span class="pn">shapes.large</span></td><td><span class="pv">16.dp</span></td><td><div style="width:36px;height:28px;background:#F75E22;border-radius:16px"></div></td></tr>
+</table>
+</div>
+<div class="card">
+<table class="tbl">
+<tr><th>Token</th><th>Value</th><th>Visual</th></tr>
+<tr><td><span class="pn">shapes.largeIncreased</span></td><td><span class="pv">20.dp</span></td><td><div style="width:36px;height:28px;background:#F97E4E;border-radius:20px"></div></td></tr>
+<tr><td><span class="pn">shapes.extraLarge</span></td><td><span class="pv">28.dp</span></td><td><div style="width:36px;height:28px;background:#F97E4E;border-radius:28px"></div></td></tr>
+<tr><td><span class="pn">shapes.extraLargeIncreased</span></td><td><span class="pv">32.dp</span></td><td><div style="width:36px;height:28px;background:#F97E4E;border-radius:32px"></div></td></tr>
+<tr><td><span class="pn">shapes.extraExtraLarge</span></td><td><span class="pv">48.dp</span></td><td><div style="width:36px;height:28px;background:#F97E4E;border-radius:48px"></div></td></tr>
+<tr><td><span class="pn">shapes.full</span></td><td><span class="pv">1000.dp</span></td><td><div style="width:56px;height:28px;background:#F97E4E;border-radius:50px"></div></td></tr>
+</table>
+</div>
+</div>
+<div class="info it" style="margin-top:14px">⚡ <strong>Squircle</strong> — All shapes use <span style="font-family:monospace">Squircle(cornerRadius, smoothing=1.0)</span> built with <span style="font-family:monospace">androidx.graphics.shapes.RoundedPolygon.rectangle()</span>. At smoothing=1.0, corners are pure squircle (not circular arcs), which gives a smoother, more iOS-like aesthetic. Per-size corner radii: XL=12dp, LG=12dp, MD=8dp, SM=8dp, XS=4dp.</div>
+</div>
+
+<!-- ALPHA TOKENS -->
+<div class="sec" id="alpha">
+<div class="stag">Foundation</div>
+<div class="stitle">Alpha (Opacity) Tokens</div>
+<div class="sdesc">Two namespaces: <span class="pv">AlphaDark</span> (suffix <em>d</em>) and <span class="pv">AlphaLight</span> (suffix <em>l</em>).</div>
+<div class="g2" style="margin-top:14px">
+<div class="card">
+<div class="tct" style="color:#79C0FF">AlphaDark</div>
+<table class="tbl" style="margin-top:8px">
+<tr><th>Token</th><th>Value</th></tr>
+<tr><td><span class="pn">AlphaDark.alpha5d</span></td><td><span class="pv">0.05f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha10d</span></td><td><span class="pv">0.10f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha20d</span></td><td><span class="pv">0.20f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha30d</span></td><td><span class="pv">0.30f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha40d</span></td><td><span class="pv">0.40f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha50d</span></td><td><span class="pv">0.50f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha60d</span></td><td><span class="pv">0.60f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha70d</span></td><td><span class="pv">0.70f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha80d</span></td><td><span class="pv">0.80f</span></td></tr>
+<tr><td><span class="pn">AlphaDark.alpha90d</span></td><td><span class="pv">0.90f</span></td></tr>
+</table>
+</div>
+<div class="card">
+<div class="tct" style="color:#A5D6FF">AlphaLight</div>
+<table class="tbl" style="margin-top:8px">
+<tr><th>Token</th><th>Value</th></tr>
+<tr><td><span class="pn">AlphaLight.alpha10l</span></td><td><span class="pv">0.10f</span></td></tr>
+<tr><td><span class="pn">AlphaLight.alpha20l</span></td><td><span class="pv">0.20f</span></td></tr>
+<tr><td><span class="pn">AlphaLight.alpha30l</span></td><td><span class="pv">0.30f</span></td></tr>
+<tr><td><span class="pn">AlphaLight.alpha40l</span></td><td><span class="pv">0.40f</span></td></tr>
+<tr><td><span class="pn">AlphaLight.alpha50l</span></td><td><span class="pv">0.50f</span></td></tr>
+<tr><td><span class="pn">AlphaLight.alpha60l</span></td><td><span class="pv">0.60f</span></td></tr>
+<tr><td><span class="pn">AlphaLight.alpha70l</span></td><td><span class="pv">0.70f</span></td></tr>
+<tr><td><span class="pn">AlphaLight.alpha80l</span></td><td><span class="pv">0.80f</span></td></tr>
+<tr><td><span class="pn">AlphaLight.alpha90l</span></td><td><span class="pv">0.90f</span></td></tr>
+</table>
+</div>
+</div>
+<div class="pre" style="margin-top:14px"><span class="co">// Usage examples</span>
+Color.Black.copy(alpha = AlphaDark.alpha20d)   <span class="co">// 20% black overlay</span>
+Modifier.alpha(AlphaDark.alpha50d)              <span class="co">// 50% opacity</span>
+</div>
+</div>
+<!-- TYPOGRAPHY -->
+<div class="sec" id="typography">
+<div class="stag">Foundation</div>
+<div class="stitle">Typography System</div>
+<div class="sdesc">Tatva has language-aware typography. The system auto-detects locale via <span class="pv">rememberSystemLanguage()</span> and scales Hindi (Devanagari) fonts +2sp relative to equivalent English styles. Mixed-language strings get per-run styling via <span class="pv">String.withMixedTypography()</span>.</div>
+<div class="info in" style="margin-top:12px">✅ Mixed-language support: In strings like "हिन्दी English mixed", TatvaText automatically applies the correct font family and size to each run. Latin runs get the English style; Devanagari runs get the Hindi style (+2sp).</div>
+<h3 class="sub">All Typography Tokens (TatvaTypography)</h3>
+<table class="tbl">
+<tr><th>Style Token</th><th>EN Size</th><th>HI Size</th><th>Weight</th><th>Usage</th></tr>
+<tr><td><span class="pn">font32Bold</span></td><td>32sp</td><td>34sp</td><td>Bold 700</td><td>Large hero titles</td></tr>
+<tr><td><span class="pn">font28Bold</span></td><td>28sp</td><td>30sp</td><td>Bold 700</td><td>Headings</td></tr>
+<tr><td><span class="pn">font24Bold</span></td><td>24sp</td><td>26sp</td><td>Bold 700</td><td>Screen titles (h1)</td></tr>
+<tr><td><span class="pn">font20Bold</span></td><td>20sp</td><td>22sp</td><td>Bold 700</td><td>Section headers (h2)</td></tr>
+<tr><td><span class="pn">font18Bold</span></td><td>18sp</td><td>20sp</td><td>Bold 700</td><td>XL button, h3</td></tr>
+<tr><td><span class="pn">font18SemiBold</span></td><td>18sp</td><td>20sp</td><td>SemiBold 600</td><td>Emphasized body</td></tr>
+<tr><td><span class="pn">font18Medium</span></td><td>18sp</td><td>20sp</td><td>Medium 500</td><td>TextField input text</td></tr>
+<tr><td><span class="pn">font18Regular</span></td><td>18sp</td><td>20sp</td><td>Regular 400</td><td>Body large</td></tr>
+<tr><td><span class="pn">font16Bold</span></td><td>16sp</td><td>18sp</td><td>Bold 700</td><td>LG button, h4</td></tr>
+<tr><td><span class="pn">font16SemiBold</span></td><td>16sp</td><td>18sp</td><td>SemiBold 600</td><td>Subheadings</td></tr>
+<tr><td><span class="pn">font16Medium</span></td><td>16sp</td><td>18sp</td><td>Medium 500</td><td>Body prominent</td></tr>
+<tr><td><span class="pn">font16Regular</span></td><td>16sp</td><td>18sp</td><td>Regular 400</td><td>Body</td></tr>
+<tr><td><span class="pn">font14Bold</span></td><td>14sp</td><td>16sp</td><td>Bold 700</td><td>MD/SM button, h5</td></tr>
+<tr><td><span class="pn">font14SemiBold</span></td><td>14sp</td><td>16sp</td><td>SemiBold 600</td><td>Labels, field labels</td></tr>
+<tr><td><span class="pn">font14Medium</span></td><td>14sp</td><td>16sp</td><td>Medium 500</td><td>Caption text</td></tr>
+<tr><td><span class="pn">font14Regular</span></td><td>14sp</td><td>16sp</td><td>Regular 400</td><td>Body small</td></tr>
+<tr><td><span class="pn">font12Bold</span></td><td>12sp</td><td>14sp</td><td>Bold 700</td><td>XS button</td></tr>
+<tr><td><span class="pn">font12SemiBold</span></td><td>12sp</td><td>14sp</td><td>SemiBold 600</td><td>Tags, badges</td></tr>
+<tr><td><span class="pn">font12Medium</span></td><td>12sp</td><td>14sp</td><td>Medium 500</td><td>Supporting text, time display</td></tr>
+<tr><td><span class="pn">font12Regular</span></td><td>12sp</td><td>14sp</td><td>Regular 400</td><td>Helper text</td></tr>
+<tr><td><span class="pn">font10Bold</span></td><td>10sp</td><td>12sp</td><td>Bold 700</td><td>Micro labels</td></tr>
+<tr><td><span class="pn">font10SemiBold</span></td><td>10sp</td><td>12sp</td><td>SemiBold 600</td><td>Overlines</td></tr>
+<tr><td><span class="pn">font10Medium</span></td><td>10sp</td><td>12sp</td><td>Medium 500</td><td>Chip text</td></tr>
+<tr><td><span class="pn">font10Regular</span></td><td>10sp</td><td>12sp</td><td>Regular 400</td><td>Chip text, checkbox labels</td></tr>
+</table>
+<h3 class="sub">TextComponent style string → Token Mapping</h3>
+<div class="info ib">When backend sends a TextComponent, the <span style="font-family:monospace">style</span> string is mapped to the above typography tokens. Here are all valid style values:</div>
+<table class="tbl">
+<tr><th>JSON style string</th><th>Maps to token</th><th>Size</th></tr>
+<tr><td><span class="js">"h1"</span></td><td><span class="pn">font32Bold</span></td><td>32sp Bold</td></tr>
+<tr><td><span class="js">"h2"</span></td><td><span class="pn">font28Bold</span></td><td>28sp Bold</td></tr>
+<tr><td><span class="js">"h3"</span></td><td><span class="pn">font24Bold</span></td><td>24sp Bold</td></tr>
+<tr><td><span class="js">"h4"</span></td><td><span class="pn">font20Bold</span></td><td>20sp Bold</td></tr>
+<tr><td><span class="js">"h5"</span></td><td><span class="pn">font18Bold</span></td><td>18sp Bold</td></tr>
+<tr><td><span class="js">"h6"</span></td><td><span class="pn">font16Bold</span></td><td>16sp Bold</td></tr>
+<tr><td><span class="js">"body1"</span></td><td><span class="pn">font16Regular</span></td><td>16sp Regular</td></tr>
+<tr><td><span class="js">"body2"</span></td><td><span class="pn">font14Regular</span></td><td>14sp Regular</td></tr>
+<tr><td><span class="js">"body1_medium"</span></td><td><span class="pn">font16Medium</span></td><td>16sp Medium</td></tr>
+<tr><td><span class="js">"body2_medium"</span></td><td><span class="pn">font14Medium</span></td><td>14sp Medium</td></tr>
+<tr><td><span class="js">"captions_tags1"</span></td><td><span class="pn">font12Regular</span></td><td>12sp Regular</td></tr>
+<tr><td><span class="js">"captions_tags2"</span></td><td><span class="pn">font10Regular</span></td><td>10sp Regular</td></tr>
+<tr><td><span class="js">"font10regular"</span></td><td><span class="pn">font10Regular</span></td><td>10sp Regular</td></tr>
+<tr><td><span class="js">"font12regular"</span></td><td><span class="pn">font12Regular</span></td><td>12sp Regular</td></tr>
+<tr><td><span class="js">"font14regular"</span></td><td><span class="pn">font14Regular</span></td><td>14sp Regular</td></tr>
+<tr><td><span class="js">"font16regular"</span></td><td><span class="pn">font16Regular</span></td><td>16sp Regular</td></tr>
+<tr><td><span class="js">"font10medium"</span></td><td><span class="pn">font10Medium</span></td><td>10sp Medium</td></tr>
+<tr><td><span class="js">"font12medium"</span></td><td><span class="pn">font12Medium</span></td><td>12sp Medium</td></tr>
+<tr><td><span class="js">"font14medium"</span></td><td><span class="pn">font14Medium</span></td><td>14sp Medium</td></tr>
+<tr><td><span class="js">"font16medium"</span></td><td><span class="pn">font16Medium</span></td><td>16sp Medium</td></tr>
+<tr><td><span class="js">"font10bold"</span></td><td><span class="pn">font10Bold</span></td><td>10sp Bold</td></tr>
+<tr><td><span class="js">"font12bold"</span></td><td><span class="pn">font12Bold</span></td><td>12sp Bold</td></tr>
+<tr><td><span class="js">"font14bold"</span></td><td><span class="pn">font14Bold</span></td><td>14sp Bold</td></tr>
+<tr><td><span class="js">"font16bold"</span></td><td><span class="pn">font16Bold</span></td><td>16sp Bold</td></tr>
+<tr><td><span class="js">"font18bold"</span></td><td><span class="pn">font18Bold</span></td><td>18sp Bold</td></tr>
+<tr><td><span class="js">"font20bold"</span></td><td><span class="pn">font20Bold</span></td><td>20sp Bold</td></tr>
+</table>
+</div>
+<!-- TATVABUTTON -->
+<div class="sec" id="tatvabutton">
+<div class="stag">UI Component</div>
+<div class="stitle">TatvaButton</div>
+<div class="sdesc">The core button component. 13 types × 5 sizes × 5 styles = 325 combinations. All animate with a 150ms color tween on press/hover. Icon can be a vector <span class="pv">ImageVector</span> or a remote URL string.</div>
+
+<h3 class="sub">All 13 Button Types — Preview</h3>
+<div class="pv-box"><span class="pv-lbl">LIVE PREVIEW</span>
+  <button class="btn md bpri">Primary</button>
+  <button class="btn md bsec">Secondary</button>
+  <button class="btn md bout">SecondaryOutline</button>
+  <button class="btn md bgho" style="color:#374151">Ghost</button>
+  <button class="btn md bblk">Black</button>
+  <button class="btn md bbo">BlackOutline</button>
+  <button class="btn md bwht" style="background:#e8e8e8">White</button>
+  <button class="btn md bwp">WhitePrimary</button>
+  <button class="btn md bwop" style="background:rgba(0,0,0,.5)">WhiteOutline</button>
+  <button class="btn md bdes">Destructive</button>
+  <button class="btn md bdeo">DestructiveOutline</button>
+  <button class="btn md bsuc">Success</button>
+  <button class="btn md bsuo">SuccessOutline</button>
+</div>
+
+<h3 class="sub">All 13 Button Types — Behavior &amp; Colors</h3>
+<table class="tbl">
+<tr><th>ButtonType</th><th>Background</th><th>Content</th><th>Border</th><th>Pressed State</th></tr>
+<tr><td><span class="en">Primary</span></td><td>Gradient G1→G2 (#F97E4E→#F75E22)</td><td>White</td><td>None</td><td>G2 solid fill</td></tr>
+<tr><td><span class="en">Secondary</span></td><td>White</td><td>schema.primary</td><td>strokePrimary</td><td>primarySurface bg</td></tr>
+<tr><td><span class="en">SecondaryOutline</span></td><td>Transparent</td><td>schema.primary</td><td>strokePrimary</td><td>primarySurface bg</td></tr>
+<tr><td><span class="en">Ghost</span></td><td>Transparent</td><td>neutralSurfaceInverted</td><td>None</td><td>neutralSurfaceElevated bg</td></tr>
+<tr><td><span class="en">Black</span></td><td>button.fillNeutral (#141414)</td><td>White</td><td>None</td><td>neutralSurfaceInverted 80%</td></tr>
+<tr><td><span class="en">BlackOutline</span></td><td>Transparent</td><td>neutralSurfaceInverted</td><td>strokeNeutral</td><td>black 20% bg</td></tr>
+<tr><td><span class="en">White</span></td><td>White</td><td>neutralSurfaceInverted</td><td>None</td><td>neutralSurfaceElevated bg</td></tr>
+<tr><td><span class="en">WhitePrimary</span></td><td>White</td><td>schema.primary</td><td>None</td><td>neutralSurfaceElevated bg</td></tr>
+<tr><td><span class="en">WhiteOutline</span></td><td>Transparent</td><td>White</td><td>strokeNeutralInverse</td><td>white 10% bg</td></tr>
+<tr><td><span class="en">Destructive</span></td><td>button.fillDestructive (#D93640)</td><td>White</td><td>None</td><td>errorDimElevated bg</td></tr>
+<tr><td><span class="en">DestructiveOutline</span></td><td>Transparent</td><td>schema.error</td><td>strokeDestructive</td><td>errorSurfaceElevated bg</td></tr>
+<tr><td><span class="en">Success</span></td><td>button.fillSuccess (#159169)</td><td>White</td><td>None</td><td>successDimElevated bg</td></tr>
+<tr><td><span class="en">SuccessOutline</span></td><td>Transparent</td><td>schema.success</td><td>strokeSuccess</td><td>successSurfaceElevated bg</td></tr>
+</table>
+
+<h3 class="sub">5 Sizes — Height, Padding &amp; Typography</h3>
+<div class="pv-box" style="align-items:flex-end;gap:8px"><span class="pv-lbl">SIZE SCALE</span>
+  <button class="btn xs bpri">XS</button>
+  <button class="btn sm bpri">Small</button>
+  <button class="btn md bpri">Medium</button>
+  <button class="btn lg bpri">Large</button>
+  <button class="btn xl bpri">Extra Large</button>
+</div>
+<table class="tbl">
+<tr><th>ButtonSize</th><th>Height</th><th>H.Padding</th><th>V.Padding</th><th>Gap</th><th>Icon</th><th>Font</th><th>Sub Font</th><th>Corner</th></tr>
+<tr><td><span class="en">XS_24</span></td><td>24dp</td><td>8dp</td><td>2dp</td><td>0dp</td><td>12dp</td><td>font12Bold</td><td>font10Medium</td><td>Squircle(4dp)</td></tr>
+<tr><td><span class="en">SM_32</span></td><td>32dp</td><td>8dp</td><td>6dp</td><td>4dp</td><td>16dp</td><td>font14Bold</td><td>font10Medium</td><td>Squircle(8dp)</td></tr>
+<tr><td><span class="en">MD_40</span></td><td>40dp</td><td>16dp (8dp w/icon)</td><td>8dp</td><td>8dp</td><td>20dp</td><td>font14Bold</td><td>font10Medium</td><td>Squircle(8dp)</td></tr>
+<tr><td><span class="en">LG_48</span></td><td>48dp</td><td>16dp</td><td>12dp</td><td>8dp</td><td>24dp</td><td>font16Bold</td><td>font12Medium</td><td>Squircle(12dp)</td></tr>
+<tr><td><span class="en">XL_56</span></td><td>56dp</td><td>20dp</td><td>16dp</td><td>8dp</td><td>24dp</td><td>font18Bold</td><td>font14Medium</td><td>Squircle(12dp)</td></tr>
+</table>
+
+<h3 class="sub">5 Styles</h3>
+<div class="pv-box" style="gap:10px"><span class="pv-lbl">STYLES</span>
+  <button class="btn md bpri">TextOnly</button>
+  <button class="btn md bpri">▶ IconLeading</button>
+  <button class="btn md bpri">IconTrailing ▶</button>
+  <button class="btn md bpri" style="width:40px;padding:0">▶</button>
+  <div style="display:inline-flex;flex-direction:column;align-items:center;background:linear-gradient(180deg,#F97E4E,#F75E22);height:56px;padding:0 20px;border-radius:12px;justify-content:center"><span style="color:#fff;font-size:14px;font-weight:700">TwoText</span><span style="color:rgba(255,255,255,.7);font-size:11px">subtitle</span></div>
+</div>
+<table class="tbl">
+<tr><th>ButtonStyle</th><th>Layout</th><th>Icon Position</th><th>Text Shown</th></tr>
+<tr><td><span class="en">TextOnly</span></td><td>Text centered</td><td>No icon</td><td>Main text only</td></tr>
+<tr><td><span class="en">IconLeading</span></td><td>Icon → Text</td><td>Before text</td><td>Main text</td></tr>
+<tr><td><span class="en">IconTrailing</span></td><td>Text → Icon</td><td>After text</td><td>Main text</td></tr>
+<tr><td><span class="en">IconOnly</span></td><td>Icon centered</td><td>Centered</td><td>No text</td></tr>
+<tr><td><span class="en">TwoText</span></td><td>Text stacked vertically</td><td>No icon</td><td>Main text + subText</td></tr>
+</table>
+
+<h3 class="sub">Disabled States</h3>
+<div class="pv-box"><span class="pv-lbl">DISABLED</span>
+  <button class="btn md bdis">Primary Disabled</button>
+  <button class="btn md" style="background:transparent;color:#9CA3AF;border:1px solid #9CA3AF;height:40px;padding:0 16px;border-radius:8px;font-weight:700">Outline Disabled</button>
+</div>
+
+<h3 class="sub">Loading State</h3>
+<div class="pv-box"><span class="pv-lbl">LOADING</span>
+  <button class="btn md bpri" style="width:100px"><div class="spn"></div></button>
+  <button class="btn md bsec" style="width:100px"><div class="spn" style="border-top-color:#F75E22;border-color:rgba(247,94,34,.2)"></div></button>
+</div>
+<div class="info it">When <span style="font-family:monospace">loading=true</span>, the button renders a <span style="font-family:monospace">CircularProgressIndicator</span> in the content color at the icon size. The button is non-clickable while loading.</div>
+
+<h3 class="sub">Full API Reference</h3>
+<div class="pre"><span class="kw">@Composable</span>
+<span class="fn">TatvaButton</span>(
+  text: String?,                    <span class="co">// null renders nothing (use IconOnly style)</span>
+  onClick: () -&gt; Unit,
+  modifier: Modifier = Modifier,
+  type: <span class="ty">ButtonType</span> = Primary,        <span class="co">// 13 options — see table above</span>
+  size: <span class="ty">ButtonSize</span> = MD_40,          <span class="co">// 5 options: XS_24, SM_32, MD_40, LG_48, XL_56</span>
+  style: <span class="ty">ButtonStyle</span> = TextOnly,     <span class="co">// 5 options — see table above</span>
+  icon: ImageVector? = null,        <span class="co">// vector icon resource</span>
+  iconUrl: String? = null,          <span class="co">// remote icon URL (AsyncImage)</span>
+  enabled: Boolean = true,
+  loading: Boolean = false,         <span class="co">// shows CircularProgressIndicator</span>
+  subText: String? = null,          <span class="co">// only used in TwoText style</span>
+  interactionSource: MutableInteractionSource
+)</pre>
+</div>
+
+<!-- TATVALINKSBUTTON -->
+<div class="sec" id="tatvalinks">
+<div class="stag">UI Component</div>
+<div class="stitle">TatvaLinksButton</div>
+<div class="sdesc">An underlined text hyperlink button. Bottom border is drawn via <span class="pv">drawBehind</span>. Shows a double-ring focus state when focused. Two color types, 5 sizes, 4 icon positions.</div>
+<div class="pv-box"><span class="pv-lbl">PREVIEW</span>
+  <span style="font-size:14px;font-weight:700;color:#F75E22;border-bottom:1px solid #F75E22;padding-bottom:1px;cursor:pointer">Primary Link</span>
+  <span style="font-size:14px;font-weight:700;color:#1D2125;border-bottom:1px solid #1D2125;padding-bottom:1px;cursor:pointer;background:#fff;padding:0 4px">Black Link</span>
+  <span style="font-size:14px;font-weight:700;color:#F75E22;border-bottom:1px solid #F75E22;padding-bottom:1px;cursor:pointer">▶ Icon Left</span>
+  <span style="font-size:14px;font-weight:700;color:#F75E22;border-bottom:1px solid #F75E22;padding-bottom:1px;cursor:pointer">Icon Right ▶</span>
+</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">label</span></td><td><span class="pt">String</span></td><td><span class="req">required</span></td><td>Link text displayed</td></tr>
+<tr><td><span class="pn">onClick</span></td><td><span class="pt">() → Unit</span></td><td><span class="req">required</span></td><td>Click handler</td></tr>
+<tr><td><span class="pn">buttonSize</span></td><td><span class="pt">LinksButtonSize</span></td><td><span class="pd">MD</span></td><td>XS(24dp) SM(32dp) MD(40dp) LG(48dp) XL(56dp)</td></tr>
+<tr><td><span class="pn">icon</span></td><td><span class="pt">LinksButtonIcon</span></td><td><span class="pd">None</span></td><td>None / Left / Right / OnlyIcon</td></tr>
+<tr><td><span class="pn">type</span></td><td><span class="pt">LinksButtonType</span></td><td><span class="pd">Primary</span></td><td>Primary (orange) or Black</td></tr>
+<tr><td><span class="pn">iconVector</span></td><td><span class="pt">ImageVector?</span></td><td><span class="opt">optional</span></td><td>Required when icon ≠ None. Icon is 20dp.</td></tr>
+</table>
+<div class="pre" style="margin-top:10px"><span class="co">// Size → Font mapping</span>
+XS(24dp) → font12Bold    SM(32dp) → font14Bold
+MD(40dp) → font14Bold    LG(48dp) → font16Bold    XL(56dp) → font16Bold
+
+<span class="co">// Type colors</span>
+Primary → text: schema.primary (#F75E22), border: schema.primary
+Black   → text: neutralSurfaceInverted (#1D2125), border: neutralSurfaceInverted</div>
+</div>
+<!-- TEMPLE INTERACTION BUTTON -->
+<div class="sec" id="temple-btn">
+<div class="stag">UI Component</div>
+<div class="stitle">TempleInteractionButton</div>
+<div class="sdesc">A circular button used for temple ritual actions (Aarti, Pooja Thali, Abhishek, etc.). Features a gradient circle with white border, optional Rive glow animation, an expanding shimmer prompt pill, and outline-shadow text label below. Used via InteractionComponent in server-driven UI.</div>
+<div class="pv-box" style="flex-direction:column;gap:10px;padding:30px"><span class="pv-lbl">PREVIEW</span>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+    <div class="tc-circle">🪔</div>
+    <span style="font-size:12px;font-weight:600;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)">Aarti</span>
+  </div>
+</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">iconMedia</span></td><td><span class="pt">MediaComponent</span></td><td><span class="req">required</span></td><td>Image/Rive shown inside the circular button (88dp area, 10dp padding)</td></tr>
+<tr><td><span class="pn">text</span></td><td><span class="pt">String</span></td><td><span class="req">required</span></td><td>Label shown below the button (with outline shadow effect)</td></tr>
+<tr><td><span class="pn">showText</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td><td>Shows/hides the text label (hidden when prompt is expanded)</td></tr>
+<tr><td><span class="pn">isEnabled</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">false</span></td><td>Shows Rive glow animation when true</td></tr>
+<tr><td><span class="pn">expandPrompt</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">false</span></td><td>Expands the shimmer prompt pill (220dp wide)</td></tr>
+<tr><td><span class="pn">promptText</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Override text in prompt pill. Defaults to "Tap for {text}"</td></tr>
+<tr><td><span class="pn">shimmerColor</span></td><td><span class="pt">Color</span></td><td><span class="pd">schema.primaryElevated</span></td><td>Color of the shimmer sweep in the prompt pill</td></tr>
+<tr><td><span class="pn">glowRive</span></td><td><span class="pt">ByteArray?</span></td><td><span class="opt">optional</span></td><td>Raw bytes of .riv file for glow animation</td></tr>
+<tr><td><span class="pn">buttonSize</span></td><td><span class="pt">Dp</span></td><td><span class="pd">88.dp</span></td><td>Size of the icon media area</td></tr>
+<tr><td><span class="pn">onCtaClick</span></td><td><span class="pt">((CtaComponent, Widget) → Unit)?</span></td><td><span class="opt">optional</span></td><td>Click handler forwarded to the icon media</td></tr>
+</table>
+<h3 class="sub">Circle Gradient (DailyDarshan)</h3>
+<div class="pre">Background circle: 48dp, CircleShape, 1dp white border
+Gradient: verticalGradient(
+  templeButton.g1 = Mysticaartipurple.s200 → <span class="co">#C7B6DC</span>  (top)
+  templeButton.g2 = Mysticaartipurple.s700 → <span class="co">#5E457E</span>  (bottom)
+)
+Shadow: 12dp elevation, spot=Black@32%</div>
+<h3 class="sub">Prompt Pill Animation</h3>
+<div class="pre">Collapsed: 48dp circle, transparent background
+Expanded:  220dp width, 32dp corner radius, neutralSurface background
+           + shimmer sweep with 3000ms duration
+           + text fades in over 2000ms (FastOutSlowInEasing)
+Spring: stiffness=VeryLow, dampingRatio=LowBouncy</div>
+</div>
+
+<!-- TATVATEXT -->
+<div class="sec" id="tatvatext">
+<div class="stag">UI Component</div>
+<div class="stitle">TatvaText + OutlineShadowText</div>
+<div class="sdesc">The system's text primitives. TatvaText handles automatic language detection, mixed Devanagari+Latin strings, and null-safety. OutlineShadowText creates a stroked outline layer behind filled text.</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">text</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Plain text. Renders nothing if null/empty (unless annotatedText provided)</td></tr>
+<tr><td><span class="pn">annotatedText</span></td><td><span class="pt">AnnotatedString?</span></td><td><span class="opt">optional</span></td><td>Takes priority over text. Used for mixed styled spans</td></tr>
+<tr><td><span class="pn">style</span></td><td><span class="pt">(TatvaTypography) → TextStyle</span></td><td><span class="req">required</span></td><td>Lambda selecting the typography token, e.g. <span class="pv">{ it.font16Bold }</span></td></tr>
+<tr><td><span class="pn">color</span></td><td><span class="pt">Color</span></td><td><span class="pd">schema.neutralSurfaceInverted</span></td><td>Text color</td></tr>
+<tr><td><span class="pn">textAlign</span></td><td><span class="pt">TextAlign?</span></td><td><span class="opt">null</span></td><td>Alignment</td></tr>
+<tr><td><span class="pn">overflow</span></td><td><span class="pt">TextOverflow</span></td><td><span class="pd">Clip</span></td><td>Overflow handling</td></tr>
+<tr><td><span class="pn">maxLines</span></td><td><span class="pt">Int</span></td><td><span class="pd">Int.MAX_VALUE</span></td><td>Max line count</td></tr>
+<tr><td><span class="pn">minLines</span></td><td><span class="pt">Int</span></td><td><span class="pd">1</span></td><td>Min line count</td></tr>
+<tr><td><span class="pn">textDecoration</span></td><td><span class="pt">TextDecoration?</span></td><td><span class="opt">null</span></td><td>Underline, LineThrough, etc.</td></tr>
+</table>
+<h3 class="sub">OutlineShadowText API</h3>
+<div class="pv-box" style="background:#333"><span class="pv-lbl">PREVIEW</span>
+  <span style="font-size:22px;font-weight:600;color:#fff;text-shadow:0 1px 3px black,-1px -1px 0 black,1px 1px 0 black;letter-spacing:-.5px">Aarti</span>
+</div>
+<table class="tbl" style="margin-top:10px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th></tr>
+<tr><td><span class="pn">fontSize</span></td><td><span class="pt">TextUnit</span></td><td><span class="pd">12.sp</span></td></tr>
+<tr><td><span class="pn">textColor</span></td><td><span class="pt">Color</span></td><td><span class="pd">schema.white</span></td></tr>
+<tr><td><span class="pn">outlineColor</span></td><td><span class="pt">Color</span></td><td><span class="pd">schema.black</span></td></tr>
+<tr><td><span class="pn">outlineWidth</span></td><td><span class="pt">Float</span></td><td><span class="pd">8f</span></td></tr>
+<tr><td><span class="pn">shadowEnabled</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td></tr>
+<tr><td><span class="pn">shadowOffset</span></td><td><span class="pt">Offset</span></td><td><span class="pd">Offset(0f, 2f)</span></td></tr>
+<tr><td><span class="pn">shadowBlurRadius</span></td><td><span class="pt">Float</span></td><td><span class="pd">2f</span></td></tr>
+<tr><td><span class="pn">shadowColor</span></td><td><span class="pt">Color</span></td><td><span class="pd">black@90%</span></td></tr>
+<tr><td><span class="pn">fontWeight</span></td><td><span class="pt">FontWeight</span></td><td><span class="pd">SemiBold</span></td></tr>
+</table>
+</div>
+
+<!-- TATVA TEXTFIELD -->
+<div class="sec" id="tatvafield">
+<div class="stag">UI Component</div>
+<div class="stitle">TatvaTextField</div>
+<div class="sdesc">Custom BasicTextField wrapping with design system styling. 3 sizes, state-aware border/background colors, optional leading/trailing icons, label, placeholder, and supporting text.</div>
+<div class="pv-box" style="flex-direction:column;gap:14px;padding:24px 32px;background:#F7F8F9"><span class="pv-lbl">STATES</span>
+  <div class="fw"><div class="fbox fxl"><span class="fph">Empty state (Grey border)</span></div><div class="fhelp n">Supporting text</div></div>
+  <div class="fw"><div class="fbox fxl act"><span class="fph" style="color:#F75E22;opacity:.4">Active / Focused (Orange border)</span></div></div>
+  <div class="fw"><div class="fbox fxl err"><span class="fph" style="color:rgba(107,114,128,.5)">Error state</span></div><div class="fhelp e">Error message here</div></div>
+</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">value</span></td><td><span class="pt">String</span></td><td><span class="req">required</span></td><td>Current text value</td></tr>
+<tr><td><span class="pn">onValueChange</span></td><td><span class="pt">(String) → Unit</span></td><td><span class="req">required</span></td><td>Text change callback</td></tr>
+<tr><td><span class="pn">label</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Bold label above the field (font14SemiBold)</td></tr>
+<tr><td><span class="pn">placeholder</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Ghost text when empty (50% alpha neutral)</td></tr>
+<tr><td><span class="pn">supportingText</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Helper text below field. Red in error state, grey otherwise.</td></tr>
+<tr><td><span class="pn">isError</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">false</span></td><td>Activates error border (red) and error background</td></tr>
+<tr><td><span class="pn">enabled</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td><td>Disabled = grey text, inputFillDeactive bg</td></tr>
+<tr><td><span class="pn">size</span></td><td><span class="pt">TatvaTextFieldSize</span></td><td><span class="pd">ExtraLarge</span></td><td>ExtraLarge(56dp), Large(48dp), Medium(40dp)</td></tr>
+<tr><td><span class="pn">leadingIcon</span></td><td><span class="pt">ImageVector?</span></td><td><span class="opt">optional</span></td><td>24dp icon on left side, tinted schema.neutral</td></tr>
+<tr><td><span class="pn">trailingIcon</span></td><td><span class="pt">ImageVector?</span></td><td><span class="opt">optional</span></td><td>24dp icon on right side, tinted schema.neutral</td></tr>
+<tr><td><span class="pn">keyboardOptions</span></td><td><span class="pt">KeyboardOptions</span></td><td><span class="pd">Default</span></td><td>Keyboard type, IME action</td></tr>
+<tr><td><span class="pn">visualTransformation</span></td><td><span class="pt">VisualTransformation</span></td><td><span class="pd">None</span></td><td>Use PasswordVisualTransformation() for passwords</td></tr>
+<tr><td><span class="pn">focusRequester</span></td><td><span class="pt">FocusRequester</span></td><td><span class="pd">FocusRequester()</span></td><td>For programmatic focus control</td></tr>
+</table>
+<div class="info it" style="margin-top:10px">Shape: Squircle(12dp). Text style: font18Medium. Horizontal padding: 16dp. All state colors come from <span style="font-family:monospace">inputField.*</span> tokens.</div>
+</div>
+
+<!-- MOBILE FIELD -->
+<div class="sec" id="mobilefield">
+<div class="stag">UI Component</div>
+<div class="stitle">TatvaMobileNumberField</div>
+<div class="sdesc">A composite component combining a CountryCodeSelector on the left with a phone number BasicTextField on the right. Both share the same focus/error state.</div>
+<div class="pv-box" style="background:#F7F8F9;padding:24px 32px"><span class="pv-lbl">PREVIEW</span>
+  <div style="display:flex;gap:8px;max-width:300px;width:100%">
+    <div style="display:flex;align-items:center;height:56px;padding:0 12px;background:#fff;border:1px solid #D1D5DB;border-radius:10px;gap:6px;font-size:14px;font-weight:500;color:#1D2125">🇮🇳 +91 ▾</div>
+    <div style="flex:1;display:flex;align-items:center;height:56px;padding:0 16px;background:#fff;border:1px solid #D1D5DB;border-radius:10px"><span style="color:rgba(107,114,128,.5);font-size:16px;font-weight:500">0000000000</span></div>
+  </div>
+</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">value</span></td><td><span class="pt">String</span></td><td><span class="req">required</span></td><td>Mobile number (digits only, no country code)</td></tr>
+<tr><td><span class="pn">country</span></td><td><span class="pt">Country</span></td><td><span class="pd">Country("+91","🇮🇳","India")</span></td><td>Selected country data</td></tr>
+<tr><td><span class="pn">onCountryClick</span></td><td><span class="pt">(() → Unit)?</span></td><td><span class="opt">optional</span></td><td>Opens country picker</td></tr>
+<tr><td><span class="pn">showCountryFlag</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td><td>Shows flag emoji in selector</td></tr>
+<tr><td><span class="pn">switchCountry</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td><td>Shows chevron-down for country switching</td></tr>
+<tr><td><span class="pn">size</span></td><td><span class="pt">TatvaTextFieldSize</span></td><td><span class="pd">ExtraLarge</span></td><td>Shared size for both left selector and right field</td></tr>
+<tr><td><span class="pn">placeholder</span></td><td><span class="pt">String</span></td><td><span class="pd">"0000000000"</span></td><td>Phone number placeholder text</td></tr>
+<tr><td><span class="pn">isError / enabled / label / supportingText</span></td><td colspan="3">Same as TatvaTextField</td></tr>
+</table>
+</div>
+<!-- TATVACHIP -->
+<div class="sec" id="tatvachip">
+<div class="stag">UI Component</div>
+<div class="stitle">TatvaChip</div>
+<div class="sdesc">Filter/selection chip. Fixed 32dp height, 16dp corner radius, 12dp h.padding, 6dp v.padding. 3 visual states: selected, unselected, disabled. Supports optional leading icon (16dp).</div>
+<div class="pv-box"><span class="pv-lbl">STATES</span>
+  <div class="chip chip-on">Selected</div>
+  <div class="chip chip-off">Unselected</div>
+  <div class="chip chip-off">▲ Icon</div>
+  <div class="chip chip-dis">Disabled</div>
+</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>State</th><th>Background</th><th>Text Color</th><th>Border</th></tr>
+<tr><td><strong>Selected</strong></td><td><span class="pv">schema.primary (#F75E22)</span></td><td><span class="pv">neutralSurfaceBase (White)</span></td><td>None</td></tr>
+<tr><td><strong>Unselected</strong></td><td>Transparent</td><td><span class="pv">neutralSurfaceInverted2</span></td><td><span class="pv">button.strokeDisabled</span></td></tr>
+<tr><td><strong>Disabled</strong></td><td><span class="pv">schema.neutralSurfaceElevated</span></td><td><span class="pv">button.fillPrimaryDisabled</span></td><td><span class="pv">schema.neutralSurfaceElevated2</span></td></tr>
+</table>
+<table class="tbl" style="margin-top:10px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">text</span></td><td><span class="pt">String</span></td><td><span class="req">required</span></td><td>Chip label (font10Regular)</td></tr>
+<tr><td><span class="pn">selected</span></td><td><span class="pt">Boolean</span></td><td><span class="req">required</span></td><td>Toggle state</td></tr>
+<tr><td><span class="pn">onClick</span></td><td><span class="pt">() → Unit</span></td><td><span class="req">required</span></td><td>Toggle callback</td></tr>
+<tr><td><span class="pn">enabled</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td><td>Disabled state</td></tr>
+<tr><td><span class="pn">leadingIcon</span></td><td><span class="pt">ImageVector?</span></td><td><span class="opt">optional</span></td><td>16dp icon before text</td></tr>
+</table>
+<div class="pre" style="margin-top:10px"><span class="co">// Usage</span>
+TatvaChip(
+  text = "Aarti",
+  selected = selectedFilters.contains("aarti"),
+  onClick = { toggleFilter("aarti") }
+)</div>
+</div>
+
+<!-- TATVACHECKBOX -->
+<div class="sec" id="tatvacheckbox">
+<div class="stag">UI Component</div>
+<div class="stitle">TatvaCheckbox</div>
+<div class="sdesc">A TriStateCheckbox wrapper. 3 visual states: Checked, Unchecked, Indeterminate. Normal mode uses success colors; error mode uses error colors. Optional text label on the right (font10Regular).</div>
+<div class="pv-box" style="background:#fff;gap:20px"><span class="pv-lbl">STATES</span>
+  <div style="display:flex;align-items:center;gap:8px"><div style="width:18px;height:18px;background:#159169;border-radius:3px;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:12px">✓</span></div><span style="color:#1D2125;font-size:10px">Checked</span></div>
+  <div style="display:flex;align-items:center;gap:8px"><div style="width:18px;height:18px;background:#fff;border-radius:3px;border:2px solid #1D2125;display:flex;align-items:center;justify-content:center"></div><span style="color:#1D2125;font-size:10px">Unchecked</span></div>
+  <div style="display:flex;align-items:center;gap:8px"><div style="width:18px;height:18px;background:#159169;border-radius:3px;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:12px">—</span></div><span style="color:#1D2125;font-size:10px">Indeterminate</span></div>
+  <div style="display:flex;align-items:center;gap:8px"><div style="width:18px;height:18px;background:#D93640;border-radius:3px;display:flex;align-items:center;justify-content:center"><span style="color:white;font-size:12px">!</span></div><span style="color:#1D2125;font-size:10px">Error</span></div>
+</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">state</span></td><td><span class="pt">CheckboxState</span></td><td><span class="req">required</span></td><td>Checked / Unchecked / Indeterminate</td></tr>
+<tr><td><span class="pn">onClick</span></td><td><span class="pt">() → Unit</span></td><td><span class="req">required</span></td><td>Toggle handler</td></tr>
+<tr><td><span class="pn">enabled</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td><td>When false, uses fillPrimaryDisabled for both checked and unchecked colors</td></tr>
+<tr><td><span class="pn">isError</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">false</span></td><td>When true, uses schema.error for both checkedColor and uncheckedColor</td></tr>
+<tr><td><span class="pn">text</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Label right of checkbox. 8dp gap. Color: neutralSurfaceInverted2 (or disabled color)</td></tr>
+</table>
+</div>
+
+<!-- SHIMMER -->
+<div class="sec" id="shimmer">
+<div class="stag">UI Component — Modifier Extension</div>
+<div class="stitle">Shimmer Modifier</div>
+<div class="sdesc">A Modifier extension that overlays an animated diagonal shimmer sweep on any composable. Used for loading skeleton states and as the shimmer effect inside TempleInteractionButton's prompt pill.</div>
+<div class="pre"><span class="co">// API</span>
+fun Modifier.<span class="fn">shimmer</span>(
+  baseColor: Color? = null,      <span class="co">// defaults to schema.neutralElevated</span>
+  durationMillis: Int = 1500     <span class="co">// sweep cycle duration</span>
+): Modifier
+
+<span class="co">// Usage examples</span>
+Box(modifier = Modifier.size(200.dp, 16.dp).shimmer())                 <span class="co">// skeleton text</span>
+Box(modifier = Modifier.size(80.dp, 80.dp).shimmer())                   <span class="co">// skeleton image</span>
+Box(modifier = Modifier.shimmer(Color.Purple, durationMillis = 3000))   <span class="co">// custom</span></div>
+<div class="info ib">The shimmer uses a linearGradient with 3 stops: baseColor@0%, baseColor@100%, baseColor@0%, animating startOffsetX from <span style="font-family:monospace">-2×width</span> to <span style="font-family:monospace">+2×width</span> in an infinite loop.</div>
+</div>
+
+<!-- DRAGGABLE VIEW -->
+<div class="sec" id="draggable">
+<div class="stag">UI Component — Layout</div>
+<div class="stitle">DraggableView</div>
+<div class="sdesc">A full-screen overlay container that allows its content to be freely dragged. When released, it animates back to the <span class="pv">initialOffset</span> with a 1000ms spring animation. Does not interfere with click detection on other layers.</div>
+<div class="pre"><span class="kw">@Composable</span>
+<span class="fn">DraggableView</span>(
+  initialOffset: Offset = Offset.Zero,   <span class="co">// where to start and return to</span>
+  content: @Composable () -&gt; Unit
+)
+
+<span class="co">// Usage: floating action button that snaps back</span>
+DraggableView(initialOffset = Offset(20f, 200f)) {
+  FloatingAartiButton()
+}</div>
+<div class="info iw">⚠️ DraggableView fills its entire parent (fillMaxSize). The dragged content is bounded within parent constraints and cannot be dragged outside the composable's bounds. Return animation: tween(1000ms).</div>
+</div>
+
+<!-- MEDIA COMPONENTS -->
+<div class="sec" id="videoplayer">
+<div class="stag">Media Component</div>
+<div class="stitle">VideoPlayer</div>
+<div class="sdesc">An expect/actual multiplatform video player. The common layer defines the contract; platform-specific implementations handle actual playback (ExoPlayer on Android, AVPlayer on iOS).</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">url</span></td><td><span class="pt">String</span></td><td><span class="req">required</span></td><td>Video URL (.mp4, HLS .m3u8, DASH, etc.)</td></tr>
+<tr><td><span class="pn">autoPlay</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">false</span></td><td>Start playback immediately on composition</td></tr>
+<tr><td><span class="pn">showControls</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td><td>Shows play/pause button + seek slider overlay</td></tr>
+<tr><td><span class="pn">mediaPlayer</span></td><td><span class="pt">MediaPlayer?</span></td><td><span class="opt">optional</span></td><td>Shared player instance (from getMediaPlayer())</td></tr>
+<tr><td><span class="pn">loop</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">false</span></td><td>Loop playback</td></tr>
+<tr><td><span class="pn">onError</span></td><td><span class="pt">(String) → Unit</span></td><td><span class="opt">optional</span></td><td>Error message callback</td></tr>
+<tr><td><span class="pn">currentPlayerState</span></td><td><span class="pt">MutableState&lt;PlayerState&gt;?</span></td><td><span class="opt">optional</span></td><td>Observe: NULL, LOADING, PLAYING, PAUSED, STOPPED, ERROR</td></tr>
+<tr><td><span class="pn">onControlsVisibilityChanged</span></td><td><span class="pt">(Boolean) → Unit</span></td><td><span class="opt">optional</span></td><td>Controls show/hide callback</td></tr>
+</table>
+<h3 class="sub">VideoPlayerControls (shared overlay)</h3>
+<div class="pre">Center: Play/Pause IconButton (48dp, CircleShape, 40% black bg, white icon)
+Bottom: Semi-transparent black surface with Slider for seeking
+        Slider colors: thumb=white, activeTrack=white
+Loading: CircularProgressIndicator centered</div>
+</div>
+
+<div class="sec" id="audioplayer">
+<div class="stag">Media Component</div>
+<div class="stitle">AudioPlayer</div>
+<div class="sdesc">Multiplatform audio player with shared controls UI (AudioPlayerControls). Shows a seek slider and MM:SS time display when duration is available.</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th></tr>
+<tr><td><span class="pn">url</span></td><td><span class="pt">String</span></td><td><span class="req">required</span></td></tr>
+<tr><td><span class="pn">autoPlay</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">false</span></td></tr>
+<tr><td><span class="pn">showControls</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td></tr>
+<tr><td><span class="pn">onError</span></td><td><span class="pt">(String) → Unit</span></td><td><span class="opt">optional</span></td></tr>
+</table>
+</div>
+
+<div class="sec" id="rive">
+<div class="stag">Media Component</div>
+<div class="stitle">RiveAnimation</div>
+<div class="sdesc">Multiplatform Rive animation player. Used for temple button glow effects and interactive animations. The resource can be raw bytes (ByteArray) for bundled assets or a path/URL.</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th></tr>
+<tr><td><span class="pn">resource</span></td><td><span class="pt">Any</span></td><td><span class="req">required</span></td></tr>
+<tr><td><span class="pn">fit</span></td><td><span class="pt">RiveFit</span></td><td><span class="pd">LAYOUT</span></td></tr>
+<tr><td><span class="pn">loop</span></td><td><span class="pt">Boolean?</span></td><td><span class="pd">false</span></td></tr>
+<tr><td><span class="pn">animationName</span></td><td><span class="pt">String?</span></td><td><span class="opt">null</span></td></tr>
+<tr><td><span class="pn">stateMachineName</span></td><td><span class="pt">String?</span></td><td><span class="opt">null</span></td></tr>
+<tr><td><span class="pn">artboardName</span></td><td><span class="pt">String?</span></td><td><span class="opt">null</span></td></tr>
+<tr><td><span class="pn">onStop</span></td><td><span class="pt">(() → Unit)?</span></td><td><span class="opt">null</span></td></tr>
+<tr><td><span class="pn">onError</span></td><td><span class="pt">(Exception) → Unit</span></td><td><span class="opt">optional</span></td></tr>
+</table>
+<div class="info ib">RiveFit enum values: FILL, CONTAIN, COVER, FIT_WIDTH, FIT_HEIGHT, NONE, SCALE_DOWN, LAYOUT</div>
+</div>
+
+<div class="sec" id="mediaplayer">
+<div class="stag">Media Component</div>
+<div class="stitle">MediaPlayer Interface</div>
+<div class="sdesc">Platform-specific player class exposed to common code. All state is exposed as StateFlow for reactive Compose collection. Use getMediaPlayer(isVideoPlayer) inside composables.</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Property / Method</th><th>Type</th><th>Description</th></tr>
+<tr><td><span class="pn">isPlaying</span></td><td><span class="pt">StateFlow&lt;Boolean&gt;</span></td><td>Current playback state</td></tr>
+<tr><td><span class="pn">currentPosition</span></td><td><span class="pt">StateFlow&lt;Long&gt;</span></td><td>Playback position in ms</td></tr>
+<tr><td><span class="pn">duration</span></td><td><span class="pt">StateFlow&lt;Long&gt;</span></td><td>Total duration in ms</td></tr>
+<tr><td><span class="pn">isLoading</span></td><td><span class="pt">StateFlow&lt;Boolean&gt;</span></td><td>Buffering/loading state</td></tr>
+<tr><td><span class="pn">error</span></td><td><span class="pt">StateFlow&lt;String?&gt;</span></td><td>Error message or null</td></tr>
+<tr><td><span class="pn">currentSource</span></td><td><span class="pt">StateFlow&lt;String?&gt;</span></td><td>Current media URL</td></tr>
+<tr><td><span class="pn">watchedPercentage</span></td><td><span class="pt">StateFlow&lt;Float&gt;</span></td><td>% of media watched (0–100, unique segments merged)</td></tr>
+<tr><td><span class="pn">audioSessionId</span></td><td><span class="pt">StateFlow&lt;Int&gt;</span></td><td>Audio session for visualization (0 if N/A)</td></tr>
+<tr><td><span class="pn">setSource(url)</span></td><td>fun</td><td>Set media URL</td></tr>
+<tr><td><span class="pn">play() / pause() / stop()</span></td><td>fun</td><td>Playback control</td></tr>
+<tr><td><span class="pn">seekTo(position)</span></td><td>fun</td><td>Seek to ms position</td></tr>
+<tr><td><span class="pn">setVolume(0f..1f)</span></td><td>fun</td><td>Volume control</td></tr>
+<tr><td><span class="pn">release()</span></td><td>fun</td><td>Release resources</td></tr>
+</table>
+</div>
+
+<div class="sec" id="fadingslideshow">
+<div class="stag">Media Component</div>
+<div class="stitle">FadingSlideshow</div>
+<div class="sdesc">An image carousel with smooth crossfade transitions. Cycles through a list of images with configurable interval and fade duration. Supports both remote URLs and local drawable resources.</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">images</span></td><td><span class="pt">List&lt;Any&gt;</span></td><td><span class="req">required</span></td><td>URL strings or drawable resource IDs</td></tr>
+<tr><td><span class="pn">intervalMs</span></td><td><span class="pt">Long</span></td><td><span class="pd">3000L</span></td><td>Time between transitions in ms</td></tr>
+<tr><td><span class="pn">fadeDurationMs</span></td><td><span class="pt">Int</span></td><td><span class="pd">800</span></td><td>Crossfade animation duration in ms</td></tr>
+<tr><td><span class="pn">contentScale</span></td><td><span class="pt">ContentScale</span></td><td><span class="pd">Crop</span></td><td>How images fill their bounds</td></tr>
+<tr><td><span class="pn">modifier</span></td><td><span class="pt">Modifier</span></td><td><span class="opt">optional</span></td><td>Applied to the Box container</td></tr>
+</table>
+<div class="pre"><span class="co">// Usage</span>
+FadingSlideshow(
+  images = listOf(
+    "https://cdn.example.com/aarti-1.jpg",
+    "https://cdn.example.com/aarti-2.jpg",
+    Res.drawable.local_image
+  ),
+  intervalMs = 4000L,
+  fadeDurationMs = 1000,
+  modifier = Modifier.fillMaxWidth().aspectRatio(16f/9f)
+)</div>
+</div>
+<!-- SERVER-DRIVEN UI HEADER -->
+<div class="sec" style="background:linear-gradient(135deg,rgba(21,145,105,.06),transparent)">
+<div class="stag">Server-Driven UI — Overview</div>
+<div class="stitle">Component Hierarchy &amp; Serialization</div>
+<div class="sdesc">All UI is driven by a JSON response. The root is a <span class="pv">ScreenResponse</span> containing a list of <span class="pv">ScreenElement</span>s. Each element is either a <strong>Section</strong> (layout container) or a <strong>Widget</strong> (leaf component). Polymorphic deserialization is handled by <span class="pv">kotlinx.serialization</span> using the <span class="pv">type</span> discriminator field.</div>
+<div class="g2" style="margin-top:16px">
+<div class="card">
+<h4 class="ss">ScreenElement (sealed)</h4>
+<div class="hier" style="font-size:11px">
+<div class="hs">ScreenElement</div>
+<div class="hse">Section (contains List&lt;Widget&gt;)</div>
+<div class="hw">HorizontalListComponent  "horizontal_list"</div>
+<div class="hw">VerticalListComponent    "vertical_list"</div>
+<div class="hw">CarouselComponent        "carousal"</div>
+<div class="hw">GridComponent            "grid"</div>
+<div class="hse">Widget (leaf item)</div>
+<div class="hw">CtaComponent             "cta"</div>
+<div class="hw">MediaComponent           "media"</div>
+<div class="hw">TextComponent            "text"</div>
+<div class="hw">BannerComponent          "banner"</div>
+<div class="hw">HeaderComponent          "header"</div>
+<div class="hw">InteractionComponent     "interaction"</div>
+<div class="hw">ItemThirdComponent       "item_third"</div>
+</div>
+</div>
+<div class="card">
+<h4 class="ss">Common Widget Fields (every Widget has these)</h4>
+<table class="tbl" style="margin-top:0">
+<tr><th>Field</th><th>Type</th><th>Default</th></tr>
+<tr><td><span class="pn">type</span></td><td><span class="pt">String</span></td><td><span class="req">required — discriminator</span></td></tr>
+<tr><td><span class="pn">id</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td></tr>
+<tr><td><span class="pn">visible</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td></tr>
+<tr><td><span class="pn">width_percent</span></td><td><span class="pt">Int?</span></td><td><span class="opt">null = full width</span></td></tr>
+<tr><td><span class="pn">top_margin</span></td><td><span class="pt">Int?</span></td><td><span class="opt">optional dp</span></td></tr>
+<tr><td><span class="pn">has_gutter</span></td><td><span class="pt">Boolean</span></td><td><span class="pd">true</span></td></tr>
+<tr><td><span class="pn">event_params</span></td><td><span class="pt">Map&lt;String,String&gt;?</span></td><td><span class="opt">optional</span></td></tr>
+</table>
+</div>
+</div>
+</div>
+
+<!-- CTA COMPONENT -->
+<div class="sec" id="ctacomp">
+<div class="stag">Server-Driven Widget</div>
+<div class="stitle">CtaComponent <span class="sn">"cta"</span></div>
+<div class="sdesc">A server-driven button. Maps to TatvaButton internally. Supports deeplink navigation, different action types, and icon media (URL or vector). All style/size/icon fields are optional — the backend drives the complete visual.</div>
+<h3 class="sub">JSON Contract</h3>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"cta"</span>,                        <span class="jc">// REQUIRED — discriminator</span>
+  <span class="jk">"id"</span>: <span class="js">"cta_donate_btn"</span>,             <span class="jc">// optional — for tracking</span>
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,                    <span class="jc">// optional, default true</span>
+  <span class="jk">"width_percent"</span>: <span class="jn">100</span>,               <span class="jc">// optional, null = full width</span>
+  <span class="jk">"top_margin"</span>: <span class="jn">12</span>,                   <span class="jc">// optional, dp value</span>
+  <span class="jk">"has_gutter"</span>: <span class="jb">true</span>,                 <span class="jc">// whether to apply AppGutters padding</span>
+  <span class="jk">"event_params"</span>: {                   <span class="jc">// optional, passed to analytics</span>
+    <span class="jk">"button_name"</span>: <span class="js">"donate"</span>
+  },
+  <span class="jk">"text"</span>: <span class="js">"Donate Now"</span>,               <span class="jc">// button label</span>
+  <span class="jk">"sub_text"</span>: <span class="js">"Help the temple"</span>,       <span class="jc">// optional second line (TwoText style)</span>
+  <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>,          <span class="jc">// "deeplink" | "dismiss" | "share" | "external"</span>
+  <span class="jk">"deeplink"</span>: <span class="js">"app://donation/create"</span>, <span class="jc">// deeplink URL (when action_type=deeplink)</span>
+  <span class="jk">"style"</span>: <span class="js">"primary"</span>,                <span class="jc">// "primary"|"secondary"|"secondary_outline"|"white"|"white_primary"|"white_outline"|"black"|"black_outline"|"destructive"|"destructive_outline"|"success"|"success_outline"|"ghost"</span>
+  <span class="jk">"size"</span>: <span class="js">"lg"</span>,                      <span class="jc">// "xs"|"sm"|"md"|"lg"|"xl"</span>
+  <span class="jk">"icon_style"</span>: <span class="js">"icon_leading"</span>,      <span class="jc">// "text_only"|"icon_leading"|"icon_trailing"|"icon_only"|"two_text"</span>
+  <span class="jk">"icon_media"</span>: {                    <span class="jc">// optional MediaComponent for icon</span>
+    <span class="jk">"type"</span>: <span class="js">"media"</span>,
+    <span class="jk">"url"</span>: <span class="js">"https://cdn.example.com/icon.png"</span>
+  },
+  <span class="jk">"enabled"</span>: <span class="jb">true</span>                     <span class="jc">// optional, default true</span>
+}</div>
+<h3 class="sub">All Fields Reference</h3>
+<table class="tbl">
+<tr><th>JSON Field</th><th>Kotlin Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><td><span class="pn">type</span></td><td><span class="pn">type</span></td><td><span class="pt">String</span></td><td><span class="req">YES</span></td><td>Must be <span class="pv">"cta"</span></td></tr>
+<tr><td><span class="pn">text</span></td><td><span class="pn">text</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>Button label text</td></tr>
+<tr><td><span class="pn">sub_text</span></td><td><span class="pn">subText</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>Secondary text (TwoText style)</td></tr>
+<tr><td><span class="pn">action_type</span></td><td><span class="pn">actionType</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>deeplink / dismiss / share / external</td></tr>
+<tr><td><span class="pn">deeplink</span></td><td><span class="pn">deeplink</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>Navigation deeplink URL</td></tr>
+<tr><td><span class="pn">style</span></td><td><span class="pn">style</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>Maps to ButtonType enum</td></tr>
+<tr><td><span class="pn">size</span></td><td><span class="pn">size</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>xs/sm/md/lg/xl → ButtonSize</td></tr>
+<tr><td><span class="pn">icon_style</span></td><td><span class="pn">iconStyle</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>Maps to ButtonStyle enum</td></tr>
+<tr><td><span class="pn">icon_media</span></td><td><span class="pn">iconMedia</span></td><td><span class="pt">MediaComponent?</span></td><td><span class="opt">no</span></td><td>Nested MediaComponent for icon image</td></tr>
+<tr><td><span class="pn">enabled</span></td><td><span class="pn">enabled</span></td><td><span class="pt">Boolean?</span></td><td><span class="opt">no</span></td><td>Button enabled/disabled state</td></tr>
+</table>
+<h3 class="sub">style field → ButtonType mapping</h3>
+<table class="tbl">
+<tr><th>JSON style value</th><th>ButtonType</th><th>Visual</th></tr>
+<tr><td><span class="js">"primary"</span></td><td>Primary</td><td>Orange gradient bg, white text</td></tr>
+<tr><td><span class="js">"secondary"</span></td><td>Secondary</td><td>White bg, orange text + orange border</td></tr>
+<tr><td><span class="js">"secondary_outline"</span></td><td>SecondaryOutline</td><td>Transparent bg, orange text + border</td></tr>
+<tr><td><span class="js">"ghost"</span></td><td>Ghost</td><td>Transparent bg, dark text, no border</td></tr>
+<tr><td><span class="js">"black"</span></td><td>Black</td><td>Black bg, white text</td></tr>
+<tr><td><span class="js">"black_outline"</span></td><td>BlackOutline</td><td>Transparent bg, dark text, dark border</td></tr>
+<tr><td><span class="js">"white"</span></td><td>White</td><td>White bg, dark text</td></tr>
+<tr><td><span class="js">"white_primary"</span></td><td>WhitePrimary</td><td>White bg, orange text</td></tr>
+<tr><td><span class="js">"white_outline"</span></td><td>WhiteOutline</td><td>Transparent bg, white text, white border</td></tr>
+<tr><td><span class="js">"destructive"</span></td><td>Destructive</td><td>Red bg, white text</td></tr>
+<tr><td><span class="js">"destructive_outline"</span></td><td>DestructiveOutline</td><td>Transparent bg, red text, red border</td></tr>
+<tr><td><span class="js">"success"</span></td><td>Success</td><td>Green bg, white text</td></tr>
+<tr><td><span class="js">"success_outline"</span></td><td>SuccessOutline</td><td>Transparent bg, green text, green border</td></tr>
+</table>
+</div>
+<!-- MEDIA COMPONENT -->
+<div class="sec" id="mediacomp">
+<div class="stag">Server-Driven Widget</div>
+<div class="stitle">MediaComponent <span class="sn">"media"</span></div>
+<div class="sdesc">Universal media renderer. Auto-detects type from URL extension (.mp4→VideoPlayer, .mp3/.aac/.ogg→AudioPlayer, .riv→RiveAnimation) or from explicit <span class="pv">media_type</span> field. Otherwise renders as AsyncImage.</div>
+<div class="pv-box" style="gap:10px"><span class="pv-lbl">SUPPORTED TYPES</span>
+  <span class="mp mi">🖼 image (AsyncImage)</span>
+  <span class="mp mv">🎬 video (.mp4, HLS)</span>
+  <span class="mp ma">🔊 audio (.mp3, .aac, .ogg)</span>
+  <span class="mp mr">✨ rive (.riv animation)</span>
+</div>
+<h3 class="sub">JSON Contract</h3>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"media"</span>,
+  <span class="jk">"id"</span>: <span class="js">"hero_image"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"width_percent"</span>: <span class="jn">100</span>,
+  <span class="jk">"top_margin"</span>: <span class="jn">0</span>,
+  <span class="jk">"has_gutter"</span>: <span class="jb">false</span>,
+  <span class="jk">"event_params"</span>: { <span class="jk">"media_id"</span>: <span class="js">"aarti_thumb"</span> },
+
+  <span class="jk">"url"</span>: <span class="js">"https://cdn.example.com/aarti.jpg"</span>, <span class="jc">// primary media URL</span>
+  <span class="jk">"thumbnail_url"</span>: <span class="js">"https://cdn.example.com/thumb.jpg"</span>, <span class="jc">// poster/thumbnail for video</span>
+  <span class="jk">"media_type"</span>: <span class="js">"image"</span>,           <span class="jc">// "image"|"video"|"audio"|"rive" — overrides URL detection</span>
+  <span class="jk">"width"</span>: <span class="jn">1920</span>,                    <span class="jc">// intrinsic width for aspect ratio (optional)</span>
+  <span class="jk">"height"</span>: <span class="jn">1080</span>,                   <span class="jc">// intrinsic height for aspect ratio (optional)</span>
+  <span class="jk">"auto_play"</span>: <span class="jb">true</span>,               <span class="jc">// video/audio: start immediately</span>
+  <span class="jk">"show_controls"</span>: <span class="jb">true</span>,           <span class="jc">// video/audio: show play/pause controls</span>
+  <span class="jk">"loop"</span>: <span class="jb">false</span>,                    <span class="jc">// video/audio: loop playback</span>
+  <span class="jk">"deeplink"</span>: <span class="js">"app://aarti/123"</span>,  <span class="jc">// optional tap deeplink</span>
+  <span class="jk">"corner_radius"</span>: <span class="jn">12</span>,             <span class="jc">// optional corner radius dp</span>
+  <span class="jk">"content_scale"</span>: <span class="js">"crop"</span>          <span class="jc">// "crop"|"fit"|"fill_bounds"|"inside"|"none" — default crop</span>
+}</div>
+<h3 class="sub">All Fields Reference</h3>
+<table class="tbl">
+<tr><th>JSON Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><td><span class="pn">url</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Main media URL. Extension determines type if media_type absent</td></tr>
+<tr><td><span class="pn">thumbnail_url</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Video thumbnail / low-res preview image</td></tr>
+<tr><td><span class="pn">media_type</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Explicit type override: image / video / audio / rive</td></tr>
+<tr><td><span class="pn">width</span></td><td><span class="pt">Int?</span></td><td><span class="opt">optional</span></td><td>Intrinsic width for aspectRatioFromMedia() helper</td></tr>
+<tr><td><span class="pn">height</span></td><td><span class="pt">Int?</span></td><td><span class="opt">optional</span></td><td>Intrinsic height for aspectRatioFromMedia() helper</td></tr>
+<tr><td><span class="pn">auto_play</span></td><td><span class="pt">Boolean?</span></td><td><span class="opt">optional</span></td><td>Auto-start playback on composition</td></tr>
+<tr><td><span class="pn">show_controls</span></td><td><span class="pt">Boolean?</span></td><td><span class="opt">optional</span></td><td>Show player controls overlay</td></tr>
+<tr><td><span class="pn">loop</span></td><td><span class="pt">Boolean?</span></td><td><span class="opt">optional</span></td><td>Loop media playback</td></tr>
+<tr><td><span class="pn">deeplink</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Navigation deeplink on tap</td></tr>
+<tr><td><span class="pn">corner_radius</span></td><td><span class="pt">Int?</span></td><td><span class="opt">optional</span></td><td>Clip corners by dp value</td></tr>
+<tr><td><span class="pn">content_scale</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>ContentScale mapping: crop / fit / fill_bounds / inside / none</td></tr>
+</table>
+<h3 class="sub">Aspect Ratio Helper</h3>
+<div class="pre"><span class="co">// Use width+height fields to maintain correct aspect ratio</span>
+Modifier.aspectRatioFromMedia(mediaComponent)
+<span class="co">// computes: width.toFloat() / height.toFloat()  (fallback 1:1)</span></div>
+</div>
+
+<!-- TEXT COMPONENT -->
+<div class="sec" id="textcomp">
+<div class="stag">Server-Driven Widget</div>
+<div class="stitle">TextComponent <span class="sn">"text"</span></div>
+<div class="sdesc">Server-driven text rendering. Maps style strings to TatvaTypography tokens. Supports hex colors, text alignment, max lines, and an optional deeplink for tappable text. Uses TatvaText under the hood.</div>
+<h3 class="sub">JSON Contract</h3>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"text"</span>,
+  <span class="jk">"id"</span>: <span class="js">"temple_name"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"width_percent"</span>: <span class="jn">100</span>,
+  <span class="jk">"top_margin"</span>: <span class="jn">8</span>,
+  <span class="jk">"has_gutter"</span>: <span class="jb">true</span>,
+  <span class="jk">"event_params"</span>: {},
+
+  <span class="jk">"text"</span>: <span class="js">"श्री सिद्धिविनायक मंदिर"</span>,      <span class="jc">// display text (supports Devanagari)</span>
+  <span class="jk">"style"</span>: <span class="js">"h3"</span>,                        <span class="jc">// see Typography section for all valid values</span>
+  <span class="jk">"color"</span>: <span class="js">"#1D2125"</span>,                  <span class="jc">// optional hex color, uses schema.neutralSurfaceInverted if absent</span>
+  <span class="jk">"text_align"</span>: <span class="js">"center"</span>,             <span class="jc">// "start"|"center"|"end"|"justify" — default start</span>
+  <span class="jk">"max_lines"</span>: <span class="jn">2</span>,                      <span class="jc">// optional max line clamp</span>
+  <span class="jk">"deeplink"</span>: <span class="js">"app://temple/123"</span>       <span class="jc">// optional — makes text tappable</span>
+}</div>
+<h3 class="sub">All Fields Reference</h3>
+<table class="tbl">
+<tr><th>JSON Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><td><span class="pn">text</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Display text. Null/empty = renders nothing</td></tr>
+<tr><td><span class="pn">style</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Typography token name. See full mapping table in Typography section</td></tr>
+<tr><td><span class="pn">color</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Hex color string. Parsed via String.hexToColor(). Falls back to neutralSurfaceInverted</td></tr>
+<tr><td><span class="pn">text_align</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>"start" / "center" / "end" / "justify"</td></tr>
+<tr><td><span class="pn">max_lines</span></td><td><span class="pt">Int?</span></td><td><span class="opt">optional</span></td><td>Clamp text to N lines with Ellipsis overflow</td></tr>
+<tr><td><span class="pn">deeplink</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Makes text tappable and navigates to deeplink</td></tr>
+</table>
+</div>
+
+<!-- BANNER COMPONENT -->
+<div class="sec" id="bannercomp">
+<div class="stag">Server-Driven Widget</div>
+<div class="stitle">BannerComponent <span class="sn">"banner"</span></div>
+<div class="sdesc">A full-width clickable banner. Renders a MediaComponent as the primary visual. The entire banner area is tappable and fires the deeplink. Typically used for promotional banners, event announcements, and offers.</div>
+<h3 class="sub">JSON Contract</h3>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"banner"</span>,
+  <span class="jk">"id"</span>: <span class="js">"diwali_promo"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"width_percent"</span>: <span class="jn">100</span>,
+  <span class="jk">"top_margin"</span>: <span class="jn">16</span>,
+  <span class="jk">"has_gutter"</span>: <span class="jb">false</span>,
+  <span class="jk">"event_params"</span>: { <span class="jk">"banner_id"</span>: <span class="js">"diwali_2024"</span> },
+
+  <span class="jk">"media"</span>: {                           <span class="jc">// REQUIRED — the banner image/video</span>
+    <span class="jk">"type"</span>: <span class="js">"media"</span>,
+    <span class="jk">"url"</span>: <span class="js">"https://cdn.example.com/diwali_banner.jpg"</span>,
+    <span class="jk">"width"</span>: <span class="jn">1080</span>,
+    <span class="jk">"height"</span>: <span class="jn">400</span>
+  },
+  <span class="jk">"deeplink"</span>: <span class="js">"app://offer/diwali"</span>,   <span class="jc">// tap action</span>
+  <span class="jk">"corner_radius"</span>: <span class="jn">12</span>                <span class="jc">// optional clip radius</span>
+}</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>JSON Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><td><span class="pn">media</span></td><td><span class="pt">MediaComponent</span></td><td><span class="req">YES</span></td><td>The banner content — image, video, or Rive</td></tr>
+<tr><td><span class="pn">deeplink</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Deeplink fired when banner tapped</td></tr>
+<tr><td><span class="pn">corner_radius</span></td><td><span class="pt">Int?</span></td><td><span class="opt">optional</span></td><td>Clip corners by dp value</td></tr>
+</table>
+</div>
+
+<!-- HEADER COMPONENT -->
+<div class="sec" id="headercomp">
+<div class="stag">Server-Driven Widget</div>
+<div class="stitle">HeaderComponent <span class="sn">"header"</span></div>
+<div class="sdesc">A composable section header: icon/thumbnail + title text + optional subtitle + optional primary CTA button. Used to introduce content sections with a title row and action button (e.g., "See All").</div>
+<h3 class="sub">JSON Contract</h3>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"header"</span>,
+  <span class="jk">"id"</span>: <span class="js">"aarti_section_header"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"top_margin"</span>: <span class="jn">24</span>,
+  <span class="jk">"has_gutter"</span>: <span class="jb">true</span>,
+  <span class="jk">"event_params"</span>: {},
+
+  <span class="jk">"title"</span>: <span class="js">"Daily Aarti"</span>,               <span class="jc">// main title text</span>
+  <span class="jk">"subtitle"</span>: <span class="js">"Watch live darshan"</span>,    <span class="jc">// optional subtitle</span>
+  <span class="jk">"icon"</span>: {                             <span class="jc">// optional leading icon/thumbnail</span>
+    <span class="jk">"type"</span>: <span class="js">"media"</span>,
+    <span class="jk">"url"</span>: <span class="js">"https://cdn.example.com/aarti_icon.png"</span>,
+    <span class="jk">"width"</span>: <span class="jn">40</span>, <span class="jk">"height"</span>: <span class="jn">40</span>
+  },
+  <span class="jk">"cta"</span>: {                              <span class="jc">// optional primary action button (right-aligned)</span>
+    <span class="jk">"type"</span>: <span class="js">"cta"</span>,
+    <span class="jk">"text"</span>: <span class="js">"See All"</span>,
+    <span class="jk">"style"</span>: <span class="js">"ghost"</span>,
+    <span class="jk">"size"</span>: <span class="js">"sm"</span>,
+    <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>,
+    <span class="jk">"deeplink"</span>: <span class="js">"app://aarti/list"</span>
+  }
+}</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>JSON Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><td><span class="pn">title</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Section title (typically font18Bold or font16Bold)</td></tr>
+<tr><td><span class="pn">subtitle</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Secondary text below title</td></tr>
+<tr><td><span class="pn">icon</span></td><td><span class="pt">MediaComponent?</span></td><td><span class="opt">optional</span></td><td>Leading icon or thumbnail</td></tr>
+<tr><td><span class="pn">cta</span></td><td><span class="pt">CtaComponent?</span></td><td><span class="opt">optional</span></td><td>Right-aligned action button (e.g. "See All")</td></tr>
+</table>
+</div>
+
+<!-- INTERACTION COMPONENT -->
+<div class="sec" id="interactioncomp">
+<div class="stag">Server-Driven Widget</div>
+<div class="stitle">InteractionComponent <span class="sn">"interaction"</span></div>
+<div class="sdesc">Server-driven wrapper for <strong>TempleInteractionButton</strong>. Used for temple ritual interactions (Aarti, Pooja Thali, Abhishek, etc.). The icon, label, glow animation, and prompt text are all server-controlled.</div>
+<h3 class="sub">JSON Contract</h3>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"interaction"</span>,
+  <span class="jk">"id"</span>: <span class="js">"aarti_btn"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"width_percent"</span>: <span class="jn">33</span>,             <span class="jc">// typically 33% in a 3-column grid</span>
+  <span class="jk">"top_margin"</span>: <span class="jn">0</span>,
+  <span class="jk">"has_gutter"</span>: <span class="jb">false</span>,
+  <span class="jk">"event_params"</span>: { <span class="jk">"action"</span>: <span class="js">"aarti"</span> },
+
+  <span class="jk">"icon_media"</span>: {                    <span class="jc">// REQUIRED — icon for the circular button</span>
+    <span class="jk">"type"</span>: <span class="js">"media"</span>,
+    <span class="jk">"url"</span>: <span class="js">"https://cdn.example.com/aarti_icon.riv"</span>
+  },
+  <span class="jk">"text"</span>: <span class="js">"Aarti"</span>,                   <span class="jc">// label below the button</span>
+  <span class="jk">"show_text"</span>: <span class="jb">true</span>,               <span class="jc">// optional, show label text</span>
+  <span class="jk">"is_enabled"</span>: <span class="jb">true</span>,             <span class="jc">// activates glow Rive animation</span>
+  <span class="jk">"expand_prompt"</span>: <span class="jb">false</span>,         <span class="jc">// expand the shimmer prompt pill</span>
+  <span class="jk">"prompt_text"</span>: <span class="js">"Tap for Aarti"</span>, <span class="jc">// custom prompt text (default: "Tap for {text}")</span>
+  <span class="jk">"cta"</span>: {                          <span class="jc">// REQUIRED — navigation CTA</span>
+    <span class="jk">"type"</span>: <span class="js">"cta"</span>,
+    <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>,
+    <span class="jk">"deeplink"</span>: <span class="js">"app://aarti/live/123"</span>
+  }
+}</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>JSON Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><td><span class="pn">icon_media</span></td><td><span class="pt">MediaComponent</span></td><td><span class="req">YES</span></td><td>The icon shown in the circular button (88dp area)</td></tr>
+<tr><td><span class="pn">text</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Label below button (OutlineShadowText)</td></tr>
+<tr><td><span class="pn">show_text</span></td><td><span class="pt">Boolean?</span></td><td><span class="opt">optional</span></td><td>Show/hide the text label</td></tr>
+<tr><td><span class="pn">is_enabled</span></td><td><span class="pt">Boolean?</span></td><td><span class="opt">optional</span></td><td>Activates glow Rive animation</td></tr>
+<tr><td><span class="pn">expand_prompt</span></td><td><span class="pt">Boolean?</span></td><td><span class="opt">optional</span></td><td>Expands the shimmer prompt pill</td></tr>
+<tr><td><span class="pn">prompt_text</span></td><td><span class="pt">String?</span></td><td><span class="opt">optional</span></td><td>Override prompt text. Default: "Tap for {text}"</td></tr>
+<tr><td><span class="pn">cta</span></td><td><span class="pt">CtaComponent?</span></td><td><span class="opt">optional</span></td><td>CTA fired when button tapped</td></tr>
+</table>
+</div>
+
+<!-- ITEM THIRD -->
+<div class="sec" id="itemthird">
+<div class="stag">Server-Driven Widget</div>
+<div class="stitle">ItemThirdComponent <span class="sn">"item_third"</span></div>
+<div class="sdesc">A ~33%-width card widget typically used inside Grid or Carousel layouts. Contains a media thumbnail on top, a title text below, and an optional subtitle. The entire card is tappable via a deeplink CTA.</div>
+<h3 class="sub">JSON Contract</h3>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"item_third"</span>,
+  <span class="jk">"id"</span>: <span class="js">"deity_card_ganesh"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"width_percent"</span>: <span class="jn">33</span>,              <span class="jc">// default 33 — takes up 1/3 of row</span>
+  <span class="jk">"top_margin"</span>: <span class="jn">0</span>,
+  <span class="jk">"has_gutter"</span>: <span class="jb">true</span>,
+  <span class="jk">"event_params"</span>: { <span class="jk">"deity"</span>: <span class="js">"ganesh"</span> },
+
+  <span class="jk">"media"</span>: {                            <span class="jc">// optional — card image/video thumbnail</span>
+    <span class="jk">"type"</span>: <span class="js">"media"</span>,
+    <span class="jk">"url"</span>: <span class="js">"https://cdn.example.com/ganesh.jpg"</span>,
+    <span class="jk">"width"</span>: <span class="jn">200</span>, <span class="jk">"height"</span>: <span class="jn">200</span>
+  },
+  <span class="jk">"title"</span>: {                            <span class="jc">// optional — card title TextComponent</span>
+    <span class="jk">"type"</span>: <span class="js">"text"</span>,
+    <span class="jk">"text"</span>: <span class="js">"श्री गणेश"</span>,
+    <span class="jk">"style"</span>: <span class="js">"font14bold"</span>,
+    <span class="jk">"text_align"</span>: <span class="js">"center"</span>
+  },
+  <span class="jk">"subtitle"</span>: {                         <span class="jc">// optional — subtitle TextComponent</span>
+    <span class="jk">"type"</span>: <span class="js">"text"</span>,
+    <span class="jk">"text"</span>: <span class="js">"Wisdom &amp; Prosperity"</span>,
+    <span class="jk">"style"</span>: <span class="js">"body2"</span>,
+    <span class="jk">"color"</span>: <span class="js">"#6B7280"</span>
+  },
+  <span class="jk">"cta"</span>: {                               <span class="jc">// optional — tap action</span>
+    <span class="jk">"type"</span>: <span class="js">"cta"</span>,
+    <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>,
+    <span class="jk">"deeplink"</span>: <span class="js">"app://deity/ganesh"</span>
+  }
+}</div>
+<table class="tbl" style="margin-top:12px">
+<tr><th>JSON Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><td><span class="pn">media</span></td><td><span class="pt">MediaComponent?</span></td><td><span class="opt">optional</span></td><td>Card thumbnail image/video</td></tr>
+<tr><td><span class="pn">title</span></td><td><span class="pt">TextComponent?</span></td><td><span class="opt">optional</span></td><td>Primary card label (nested TextComponent)</td></tr>
+<tr><td><span class="pn">subtitle</span></td><td><span class="pt">TextComponent?</span></td><td><span class="opt">optional</span></td><td>Secondary card label (nested TextComponent)</td></tr>
+<tr><td><span class="pn">cta</span></td><td><span class="pt">CtaComponent?</span></td><td><span class="opt">optional</span></td><td>Tap navigation action</td></tr>
+</table>
+</div>
+<!-- HORIZONTAL LIST -->
+<div class="sec" id="hlist">
+<div class="stag">Layout Section</div>
+<div class="stitle">HorizontalListComponent <span class="sn">"horizontal_list"</span></div>
+<div class="sdesc">A horizontally scrollable LazyRow of widgets. Can have an optional title, subtitle, and primary CTA button at the top. Gutter logic: widgets with has_gutter=true get 32dp total gutter.</div>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"horizontal_list"</span>,
+  <span class="jk">"id"</span>: <span class="js">"temples_row"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"top_margin"</span>: <span class="jn">16</span>,
+  <span class="jk">"title"</span>: <span class="js">"Nearby Temples"</span>,
+  <span class="jk">"subtitle"</span>: <span class="js">"Explore temples near you"</span>,
+  <span class="jk">"primary_cta"</span>: {
+    <span class="jk">"type"</span>: <span class="js">"cta"</span>, <span class="jk">"text"</span>: <span class="js">"See All"</span>,
+    <span class="jk">"style"</span>: <span class="js">"ghost"</span>, <span class="jk">"size"</span>: <span class="js">"sm"</span>,
+    <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>, <span class="jk">"deeplink"</span>: <span class="js">"app://temples"</span>
+  },
+  <span class="jk">"widgets"</span>: [
+    { <span class="jk">"type"</span>: <span class="js">"item_third"</span>, <span class="jk">"width_percent"</span>: <span class="jn">40</span>, <span class="jk">"has_gutter"</span>: <span class="jb">true</span>, <span class="co">/* ... */</span> },
+    { <span class="jk">"type"</span>: <span class="js">"item_third"</span>, <span class="jk">"width_percent"</span>: <span class="jn">40</span>, <span class="jk">"has_gutter"</span>: <span class="jb">true</span>, <span class="co">/* ... */</span> }
+  ]
+}</div>
+<table class="tbl">
+<tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+<tr><td><span class="pn">title</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>Section heading text</td></tr>
+<tr><td><span class="pn">subtitle</span></td><td><span class="pt">String?</span></td><td><span class="opt">no</span></td><td>Section subheading text</td></tr>
+<tr><td><span class="pn">primary_cta</span></td><td><span class="pt">CtaComponent?</span></td><td><span class="opt">no</span></td><td>Right-aligned header action ("See All")</td></tr>
+<tr><td><span class="pn">widgets</span></td><td><span class="pt">List&lt;Widget&gt;</span></td><td><span class="req">YES</span></td><td>Child widgets rendered in LazyRow</td></tr>
+</table>
+<div class="info ib">Gutter: LIST_WIDGET_WITH_GUTTER = 32dp total (16dp each side). Set has_gutter=false on widgets to disable.</div>
+</div>
+
+<!-- VERTICAL LIST -->
+<div class="sec" id="vlist">
+<div class="stag">Layout Section</div>
+<div class="stitle">VerticalListComponent <span class="sn">"vertical_list"</span></div>
+<div class="sdesc">A vertical Column of widgets. Same header structure as HorizontalList. Each widget renders at its own width_percent. Gutter: 32dp total.</div>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"vertical_list"</span>,
+  <span class="jk">"id"</span>: <span class="js">"news_feed"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"top_margin"</span>: <span class="jn">16</span>,
+  <span class="jk">"title"</span>: <span class="js">"Latest News"</span>,
+  <span class="jk">"primary_cta"</span>: <span class="jb">null</span>,
+  <span class="jk">"widgets"</span>: [
+    { <span class="jk">"type"</span>: <span class="js">"banner"</span>, <span class="jk">"has_gutter"</span>: <span class="jb">true</span>, <span class="co">/* ... */</span> },
+    { <span class="jk">"type"</span>: <span class="js">"text"</span>, <span class="jk">"has_gutter"</span>: <span class="jb">true</span>, <span class="co">/* ... */</span> }
+  ]
+}</div>
+</div>
+
+<!-- CAROUSEL -->
+<div class="sec" id="carousel">
+<div class="stag">Layout Section</div>
+<div class="stitle">CarouselComponent <span class="sn">"carousal"</span></div>
+<div class="sdesc">A paged snapping carousel (LazyRow with snap fling behavior). Supports multi-row layouts. Widgets are sized by width_percent. Gutter varies by widget width: 100%=32dp, 50%=32dp, 40%=48dp, 33%=48dp.</div>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"carousal"</span>,
+  <span class="jk">"id"</span>: <span class="js">"deity_carousel"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"top_margin"</span>: <span class="jn">20</span>,
+  <span class="jk">"title"</span>: <span class="js">"Featured Deities"</span>,
+  <span class="jk">"rows"</span>: <span class="jn">1</span>,
+  <span class="jk">"widgets"</span>: [
+    { <span class="jk">"type"</span>: <span class="js">"item_third"</span>, <span class="jk">"width_percent"</span>: <span class="jn">33</span>, <span class="jk">"has_gutter"</span>: <span class="jb">true</span>, <span class="co">/* ... */</span> },
+    { <span class="jk">"type"</span>: <span class="js">"item_third"</span>, <span class="jk">"width_percent"</span>: <span class="jn">33</span>, <span class="jk">"has_gutter"</span>: <span class="jb">true</span>, <span class="co">/* ... */</span> },
+    { <span class="jk">"type"</span>: <span class="js">"item_third"</span>, <span class="jk">"width_percent"</span>: <span class="jn">33</span>, <span class="jk">"has_gutter"</span>: <span class="jb">true</span>, <span class="co">/* ... */</span> }
+  ]
+}</div>
+<table class="tbl">
+<tr><th>Field</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">rows</span></td><td><span class="pt">Int?</span></td><td><span class="pd">1</span></td><td>Number of rows in multi-row carousel layout</td></tr>
+<tr><td><span class="pn">title / subtitle / primary_cta / widgets</span></td><td colspan="3">Same as HorizontalList</td></tr>
+</table>
+<h3 class="sub">Gutter Table (AppGutters)</h3>
+<table class="tbl">
+<tr><th>Widget width_percent</th><th>Total Gutter</th><th>Each Side</th></tr>
+<tr><td>100 (default)</td><td>32dp</td><td>16dp</td></tr>
+<tr><td>50</td><td>32dp</td><td>16dp</td></tr>
+<tr><td>40</td><td>48dp</td><td>24dp</td></tr>
+<tr><td>33</td><td>48dp</td><td>24dp</td></tr>
+</table>
+</div>
+
+<!-- GRID -->
+<div class="sec" id="grid">
+<div class="stag">Layout Section</div>
+<div class="stitle">GridComponent <span class="sn">"grid"</span></div>
+<div class="sdesc">A fixed N-column LazyVerticalGrid. Column count controlled by span_count. Gutter varies: 1col=32dp, 2col=48dp, 3col=56dp, N col=(12*(N-1)+32)dp.</div>
+<div class="json-block">{
+  <span class="jk">"type"</span>: <span class="js">"grid"</span>,
+  <span class="jk">"id"</span>: <span class="js">"interaction_grid"</span>,
+  <span class="jk">"visible"</span>: <span class="jb">true</span>,
+  <span class="jk">"top_margin"</span>: <span class="jn">16</span>,
+  <span class="jk">"title"</span>: <span class="js">"Temple Services"</span>,
+  <span class="jk">"span_count"</span>: <span class="jn">3</span>,
+  <span class="jk">"widgets"</span>: [
+    { <span class="jk">"type"</span>: <span class="js">"interaction"</span>, <span class="jk">"has_gutter"</span>: <span class="jb">false</span>, <span class="co">/* aarti */</span> },
+    { <span class="jk">"type"</span>: <span class="js">"interaction"</span>, <span class="jk">"has_gutter"</span>: <span class="jb">false</span>, <span class="co">/* pooja */</span> },
+    { <span class="jk">"type"</span>: <span class="js">"interaction"</span>, <span class="jk">"has_gutter"</span>: <span class="jb">false</span>, <span class="co">/* abhishek */</span> }
+  ]
+}</div>
+<table class="tbl">
+<tr><th>Field</th><th>Type</th><th>Default</th><th>Description</th></tr>
+<tr><td><span class="pn">span_count</span></td><td><span class="pt">Int?</span></td><td><span class="pd">3</span></td><td>Number of columns in the grid</td></tr>
+<tr><td><span class="pn">title / subtitle / primary_cta / widgets</span></td><td colspan="3">Same as HorizontalList</td></tr>
+</table>
+</div>
+
+<!-- UTILITIES -->
+<div class="sec" id="gutters">
+<div class="stag">Utility</div>
+<div class="stitle">AppGutters</div>
+<div class="sdesc">Computes per-widget padding based on the parent section type and widget width. Called automatically by the rendering layer. Returns 0 if has_gutter=false.</div>
+<div class="pre">AppGutters.getGutterForWidgetInSection(section, widget)
+<span class="co">// Returns Int (dp) — applied as horizontal padding to widget</span>
+
+<span class="co">// Rules:</span>
+HorizontalList / VerticalList  → 32dp (if has_gutter=true)
+Carousel  width=50            → 32dp
+Carousel  width=40            → 48dp
+Carousel  width=33            → 48dp
+Carousel  default             → 32dp
+Grid      spanCount=1         → 32dp
+Grid      spanCount=2         → 48dp
+Grid      spanCount=3         → 56dp
+Grid      spanCount=N         → (12*(N-1)+32)dp</div>
+</div>
+
+<!-- ICONS -->
+<div class="sec" id="icons">
+<div class="stag">Assets</div>
+<div class="stitle">Custom Icon Set</div>
+<div class="sdesc">16 custom vector icons packaged in the design system. All accessed via <span class="pv">icXxx</span> property from the icons package.</div>
+<table class="tbl">
+<tr><th>Icon</th><th>Kotlin Reference</th><th>Usage</th></tr>
+<tr><td>▼</td><td><span class="pn">icChevronDown</span></td><td>Dropdown, expand</td></tr>
+<tr><td>◀</td><td><span class="pn">icChevronLeft</span></td><td>Back navigation</td></tr>
+<tr><td>▶</td><td><span class="pn">icChevronRight</span></td><td>Forward, list items</td></tr>
+<tr><td>▲</td><td><span class="pn">icChevronUp</span></td><td>Collapse, scroll up</td></tr>
+<tr><td>✕</td><td><span class="pn">icClose</span></td><td>Dismiss, close</td></tr>
+<tr><td>✓</td><td><span class="pn">icDoneCheck</span></td><td>Success, confirmation</td></tr>
+<tr><td>⋯</td><td><span class="pn">icDotsMenu</span></td><td>More options</td></tr>
+<tr><td>⌂</td><td><span class="pn">icHome</span></td><td>Home tab</td></tr>
+<tr><td>📷</td><td><span class="pn">icInstagram</span></td><td>Instagram social link</td></tr>
+<tr><td>🚪</td><td><span class="pn">icLogout</span></td><td>Sign out</td></tr>
+<tr><td>🎤</td><td><span class="pn">icMicOff</span></td><td>Mute microphone</td></tr>
+<tr><td>🔇</td><td><span class="pn">icMute</span></td><td>Audio mute</td></tr>
+<tr><td>⏸</td><td><span class="pn">icPause</span></td><td>Media pause</td></tr>
+<tr><td>▶</td><td><span class="pn">icPlay</span></td><td>Media play</td></tr>
+<tr><td>👤</td><td><span class="pn">icProfile</span></td><td>Profile tab</td></tr>
+<tr><td>🔍</td><td><span class="pn">icSearch</span></td><td>Search</td></tr>
+<tr><td>↗</td><td><span class="pn">icShare</span></td><td>Share content</td></tr>
+<tr><td>★</td><td><span class="pn">icStar</span></td><td>Ratings, favorites</td></tr>
+<tr><td>📹</td><td><span class="pn">icVideoRec</span></td><td>Video recording</td></tr>
+<tr><td>🔊</td><td><span class="pn">icVolumeFull</span></td><td>Audio unmute</td></tr>
+<tr><td>💬</td><td><span class="pn">icWhatsapp</span></td><td>WhatsApp share</td></tr>
+</table>
+</div>
+
+<!-- EXTENSIONS -->
+<div class="sec" id="extensions">
+<div class="stag">Utility</div>
+<div class="stitle">Extension Functions</div>
+<div class="pre"><span class="co">// 1. aspectRatioFromMedia — Modifier extension</span>
+Modifier.aspectRatioFromMedia(media: MediaComponent?)
+<span class="co">// Uses media.width / media.height — fallback 1:1</span>
+
+<span class="co">// 2. hexToColor — String extension</span>
+"#F75E22".hexToColor()    <span class="co">// → Color(0xFFF75E22)</span>
+"F75E22".hexToColor()     <span class="co">// → Color(0xFFF75E22) — # prefix optional</span>
+"AAFFFFFF".hexToColor()   <span class="co">// → Color with alpha (8-char hex)</span>
+null.hexToColor()          <span class="co">// → Color.Unspecified (safe)</span>
+"bad".hexToColor { e -> log(e) }  <span class="co">// → Color.Unspecified + onError callback</span>
+
+<span class="co">// 3. withMixedTypography — String extension (Composable)</span>
+"हिन्दी English text".withMixedTypography { it.font16Bold }
+<span class="co">// Returns AnnotatedString with correct font per script run</span></div>
+</div>
+
+<!-- FULL EXAMPLE -->
+<div class="sec" id="full-example">
+<div class="stag">Complete Example</div>
+<div class="stitle">Full Screen JSON Response</div>
+<div class="sdesc">A complete screen payload showing DailyDarshan home screen structure with all component types.</div>
+<div class="json-block">{
+  <span class="jk">"screen_id"</span>: <span class="js">"home"</span>,
+  <span class="jk">"elements"</span>: [
+
+    <span class="jc">// 1. Full-width banner at top</span>
+    {
+      <span class="jk">"type"</span>: <span class="js">"banner"</span>,
+      <span class="jk">"id"</span>: <span class="js">"hero_banner"</span>,
+      <span class="jk">"has_gutter"</span>: <span class="jb">false</span>,
+      <span class="jk">"media"</span>: {
+        <span class="jk">"type"</span>: <span class="js">"media"</span>,
+        <span class="jk">"url"</span>: <span class="js">"https://cdn.example.com/hero.jpg"</span>,
+        <span class="jk">"width"</span>: <span class="jn">1080</span>, <span class="jk">"height"</span>: <span class="jn">600</span>
+      },
+      <span class="jk">"deeplink"</span>: <span class="js">"app://aarti/live"</span>
+    },
+
+    <span class="jc">// 2. Section title text</span>
+    {
+      <span class="jk">"type"</span>: <span class="js">"text"</span>,
+      <span class="jk">"top_margin"</span>: <span class="jn">20</span>,
+      <span class="jk">"has_gutter"</span>: <span class="jb">true</span>,
+      <span class="jk">"text"</span>: <span class="js">"Temple Services"</span>,
+      <span class="jk">"style"</span>: <span class="js">"h4"</span>
+    },
+
+    <span class="jc">// 3. 3-column grid of interaction buttons</span>
+    {
+      <span class="jk">"type"</span>: <span class="js">"grid"</span>,
+      <span class="jk">"id"</span>: <span class="js">"services_grid"</span>,
+      <span class="jk">"top_margin"</span>: <span class="jn">12</span>,
+      <span class="jk">"span_count"</span>: <span class="jn">3</span>,
+      <span class="jk">"widgets"</span>: [
+        {
+          <span class="jk">"type"</span>: <span class="js">"interaction"</span>,
+          <span class="jk">"text"</span>: <span class="js">"Aarti"</span>,
+          <span class="jk">"is_enabled"</span>: <span class="jb">true</span>,
+          <span class="jk">"icon_media"</span>: { <span class="jk">"type"</span>: <span class="js">"media"</span>, <span class="jk">"url"</span>: <span class="js">"https://cdn/aarti.riv"</span> },
+          <span class="jk">"cta"</span>: { <span class="jk">"type"</span>: <span class="js">"cta"</span>, <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>, <span class="jk">"deeplink"</span>: <span class="js">"app://aarti"</span> }
+        },
+        {
+          <span class="jk">"type"</span>: <span class="js">"interaction"</span>,
+          <span class="jk">"text"</span>: <span class="js">"Pooja"</span>,
+          <span class="jk">"is_enabled"</span>: <span class="jb">false</span>,
+          <span class="jk">"icon_media"</span>: { <span class="jk">"type"</span>: <span class="js">"media"</span>, <span class="jk">"url"</span>: <span class="js">"https://cdn/pooja.png"</span> },
+          <span class="jk">"cta"</span>: { <span class="jk">"type"</span>: <span class="js">"cta"</span>, <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>, <span class="jk">"deeplink"</span>: <span class="js">"app://pooja"</span> }
+        },
+        {
+          <span class="jk">"type"</span>: <span class="js">"interaction"</span>,
+          <span class="jk">"text"</span>: <span class="js">"Prasad"</span>,
+          <span class="jk">"icon_media"</span>: { <span class="jk">"type"</span>: <span class="js">"media"</span>, <span class="jk">"url"</span>: <span class="js">"https://cdn/prasad.png"</span> },
+          <span class="jk">"cta"</span>: { <span class="jk">"type"</span>: <span class="js">"cta"</span>, <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>, <span class="jk">"deeplink"</span>: <span class="js">"app://prasad"</span> }
+        }
+      ]
+    },
+
+    <span class="jc">// 4. Horizontal carousel of deity cards</span>
+    {
+      <span class="jk">"type"</span>: <span class="js">"carousal"</span>,
+      <span class="jk">"id"</span>: <span class="js">"deities"</span>,
+      <span class="jk">"top_margin"</span>: <span class="jn">24</span>,
+      <span class="jk">"title"</span>: <span class="js">"Deities"</span>,
+      <span class="jk">"rows"</span>: <span class="jn">1</span>,
+      <span class="jk">"primary_cta"</span>: { <span class="jk">"type"</span>: <span class="js">"cta"</span>, <span class="jk">"text"</span>: <span class="js">"See All"</span>, <span class="jk">"style"</span>: <span class="js">"ghost"</span>, <span class="jk">"size"</span>: <span class="js">"sm"</span>, <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>, <span class="jk">"deeplink"</span>: <span class="js">"app://deities"</span> },
+      <span class="jk">"widgets"</span>: [
+        {
+          <span class="jk">"type"</span>: <span class="js">"item_third"</span>,
+          <span class="jk">"width_percent"</span>: <span class="jn">33</span>,
+          <span class="jk">"has_gutter"</span>: <span class="jb">true</span>,
+          <span class="jk">"media"</span>: { <span class="jk">"type"</span>: <span class="js">"media"</span>, <span class="jk">"url"</span>: <span class="js">"https://cdn/ganesh.jpg"</span>, <span class="jk">"width"</span>: <span class="jn">200</span>, <span class="jk">"height"</span>: <span class="jn">200</span> },
+          <span class="jk">"title"</span>: { <span class="jk">"type"</span>: <span class="js">"text"</span>, <span class="jk">"text"</span>: <span class="js">"Ganesh"</span>, <span class="jk">"style"</span>: <span class="js">"font12bold"</span>, <span class="jk">"text_align"</span>: <span class="js">"center"</span> },
+          <span class="jk">"cta"</span>: { <span class="jk">"type"</span>: <span class="js">"cta"</span>, <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>, <span class="jk">"deeplink"</span>: <span class="js">"app://deity/ganesh"</span> }
+        }
+      ]
+    },
+
+    <span class="jc">// 5. Primary CTA button</span>
+    {
+      <span class="jk">"type"</span>: <span class="js">"cta"</span>,
+      <span class="jk">"top_margin"</span>: <span class="jn">24</span>,
+      <span class="jk">"has_gutter"</span>: <span class="jb">true</span>,
+      <span class="jk">"text"</span>: <span class="js">"Book Pooja"</span>,
+      <span class="jk">"style"</span>: <span class="js">"primary"</span>,
+      <span class="jk">"size"</span>: <span class="js">"xl"</span>,
+      <span class="jk">"action_type"</span>: <span class="js">"deeplink"</span>,
+      <span class="jk">"deeplink"</span>: <span class="js">"app://booking/pooja"</span>
+    }
+  ]
+}</div>
+</div>
+
+</div><!-- end .main -->
+<script>
+const links = document.querySelectorAll('.na');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.remove('active'));
+      const a=document.querySelector('.na[href="#'+e.target.id+'"]');
+      if(a)a.classList.add('active');
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('[id]').forEach(el=>obs.observe(el));
+</script>
+</body></html>
